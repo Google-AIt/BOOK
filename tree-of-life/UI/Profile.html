@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الملف العائلي – شجرة الحياة</title>
+  <link rel="stylesheet" href="../css/brand-system.css">
+  <link rel="stylesheet" href="../css/app-ui.css">
+  <style>
+    body {
+      background-color: var(--color-beige-light);
+      font-family: 'Cairo', sans-serif;
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+    }
+    .profile-wrap {
+      max-width: 800px;
+      width: 100%;
+      background-color: var(--color-white);
+      border: 1px solid var(--color-beige-dark);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: var(--luxury-shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    .member-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .member-card {
+      background-color: var(--color-beige-light);
+      border: 1px solid var(--color-beige-dark);
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-wrap">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--color-beige-medium); padding-bottom: 15px;">
+      <h1 style="font-family: 'Reem Kufi', sans-serif; color: var(--color-green-dark); margin: 0; font-size: 1.5rem;">الملف العائلي وأفراد المنزل 👨‍👩‍👧</h1>
+      <button class="ui-kit-btn ui-kit-btn-primary">+ دعوة فرد جديد</button>
+    </div>
+    
+    <div>
+      <h2 style="font-family: 'Reem Kufi', sans-serif; font-size: 1.1rem; color: var(--color-green-olive); margin-bottom: 15px;">أفراد العائلة المساهمون</h2>
+      <div class="member-grid">
+        <!-- Ziyad -->
+        <div class="member-card">
+          <div class="sidebar-user-avatar" style="width: 60px; height: 60px; font-size: 1.8rem; background-color: #C59F4B;">👨</div>
+          <h3 style="font-size: 0.9rem; font-weight: 700; margin: 0;">أبو محمد (زياد)</h3>
+          <span class="ui-kit-badge" style="background-color: var(--color-khairukum-pink-soft); color: var(--color-khairukum-pink);">منشئ رئيسي 👑</span>
+          <p style="font-size: 0.65rem; opacity: 0.7;">أضاف 18 ورقة (حب، سفر، أهداف)</p>
+        </div>
+        
+        <!-- Sarah -->
+        <div class="member-card">
+          <div class="sidebar-user-avatar" style="width: 60px; height: 60px; font-size: 1.8rem; background-color: #5C6B57;">👩</div>
+          <h3 style="font-size: 0.9rem; font-weight: 700; margin: 0;">أم محمد (سارة)</h3>
+          <span class="ui-kit-badge" style="background-color: rgba(92,107,87,0.08); color: var(--color-green-olive);">شريك حياة 🤝</span>
+          <p style="font-size: 0.65rem; opacity: 0.7;">أضافت 12 ورقة (امتنان، بيت، أحلام)</p>
+        </div>
+        
+        <!-- Children -->
+        <div class="member-card" style="opacity: 0.85;">
+          <div class="sidebar-user-avatar" style="width: 60px; height: 60px; font-size: 1.8rem; background-color: #A2B29F;">👦</div>
+          <h3 style="font-size: 0.9rem; font-weight: 700; margin: 0;">محمد (الابن)</h3>
+          <span class="ui-kit-badge" style="background-color: var(--color-beige-medium); color: var(--color-charcoal);">عضو عائلتي 🍃</span>
+          <p style="font-size: 0.65rem; opacity: 0.7;">أضاف 6 أوراق (نمو شخصي، أهداف)</p>
+        </div>
+      </div>
+    </div>
+    
+    <div style="border-top: 1px solid var(--color-beige-dark); padding-top: 20px;">
+      <h2 style="font-family: 'Reem Kufi', sans-serif; font-size: 1.1rem; color: var(--color-green-olive); margin-bottom: 15px;">إحصائيات المودة العائلية</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <div style="background-color: var(--color-beige-light); padding: 15px; border-radius: 12px; border: 1px solid rgba(232,223,216,0.5);">
+          <span style="font-size: 0.8rem; opacity: 0.7;">إجمالي الذكريات المشتركة</span>
+          <div style="font-size: 1.5rem; font-weight: 700; color: var(--color-khairukum-pink); margin-top: 5px;">36 ذِكرى مخلدة</div>
+        </div>
+        <div style="background-color: var(--color-beige-light); padding: 15px; border-radius: 12px; border: 1px solid rgba(232,223,216,0.5);">
+          <span style="font-size: 0.8rem; opacity: 0.7;">نوع الأوراق الأكثر انتشاراً</span>
+          <div style="font-size: 1.5rem; font-weight: 700; color: var(--color-green-olive); margin-top: 5px;">أوراق الحب والامتنان ❤️</div>
+        </div>
+      </div>
+    </div>
+    
+    <div style="display: flex; justify-content: flex-end; gap: 15px; margin-top: 10px;">
+      <button class="ui-kit-btn ui-kit-btn-outline" onclick="window.location.href='../index.html#app';">العودة للوحة التحكم</button>
+      <button class="ui-kit-btn ui-kit-btn-secondary">حفظ التغييرات</button>
+    </div>
+  </div>
+</body>
+</html>

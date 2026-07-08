@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;900&display=swap');
+
+:root {
+  /* Fonts */
+  --font-family: 'Plus Jakarta Sans', 'Tajawal', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  /* Spacing Grid (4px base) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* Border Radii */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* Opacity Settings */
+  --opacity-disabled: 0.45;
+  --opacity-muted: 0.65;
+  --opacity-glass: 0.12;
+
+  /* Motion and Transitions */
+  --transition-fast: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 280ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 480ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================================
+   THEME 1: EMERALD GREEN (Default)
+   ========================================================================== */
+:root, [data-theme="emerald"] {
+  --primary-h: 155;
+  --primary-s: 82%;
+  --primary-l: 24%;
+  --accent-h: 343;
+  --accent-s: 90%;
+  --accent-l: 48%; /* Hot pink representing the heart in the logo */
+
+  --theme-primary: HSL(var(--primary-h), var(--primary-s), var(--primary-l));
+  --theme-primary-hover: HSL(var(--primary-h), var(--primary-s), calc(var(--primary-l) - 6%));
+  --theme-primary-rgb: 8, 84, 52;
+  --theme-primary-light: HSL(var(--primary-h), var(--primary-s), 95%);
+
+  --theme-accent: HSL(var(--accent-h), var(--accent-s), var(--accent-l));
+  --theme-accent-hover: HSL(var(--accent-h), var(--accent-s), calc(var(--accent-l) - 6%));
+  --theme-accent-rgb: 232, 23, 86;
+  --theme-accent-light: HSL(var(--accent-h), var(--accent-s), 95%);
+
+  --theme-secondary: HSL(155, 25%, 45%);
+  --theme-secondary-hover: HSL(155, 25%, 35%);
+
+  --theme-success: HSL(142, 70%, 38%);
+  --theme-warning: HSL(38, 92%, 46%);
+  --theme-danger: HSL(355, 84%, 52%);
+  --theme-info: HSL(198, 82%, 44%);
+
+  /* Environment & Surfaces (Soft UI / Luxury Light) */
+  --theme-bg: HSL(155, 12%, 97%);
+  --theme-surface: rgba(255, 255, 255, 0.85);
+  --theme-card: rgba(255, 255, 255, 0.9);
+  --theme-card-border: rgba(8, 84, 52, 0.08);
+  --theme-border-color: rgba(8, 84, 52, 0.08);
+
+  /* Typography */
+  --theme-text-main: HSL(155, 40%, 10%);
+  --theme-text-muted: HSL(155, 12%, 42%);
+  --theme-text-on-primary: HSL(0, 0%, 100%);
+  --theme-text-on-accent: HSL(0, 0%, 100%);
+
+  /* Shadows */
+  --theme-shadow-sm: 0 2px 4px rgba(8, 84, 52, 0.02);
+  --theme-shadow-md: 0 8px 24px rgba(8, 84, 52, 0.04), 0 2px 6px rgba(8, 84, 52, 0.02);
+  --theme-shadow-lg: 0 16px 40px rgba(8, 84, 52, 0.06), 0 4px 12px rgba(8, 84, 52, 0.03);
+  --theme-shadow-xl: 0 32px 64px rgba(8, 84, 52, 0.08), 0 8px 24px rgba(8, 84, 52, 0.04);
+
+  /* Glassmorphism */
+  --theme-glass-bg: rgba(255, 255, 255, 0.7);
+  --theme-glass-border: rgba(255, 255, 255, 0.4);
+}
+
+/* Dark Mode Emerald */
+[data-theme="emerald"][data-mode="dark"] {
+  --primary-h: 155;
+  --primary-s: 68%;
+  --primary-l: 44%;
+
+  --theme-primary: HSL(var(--primary-h), var(--primary-s), var(--primary-l));
+  --theme-primary-hover: HSL(var(--primary-h), var(--primary-s), calc(var(--primary-l) + 8%));
+  --theme-primary-rgb: 36, 188, 126;
+  --theme-primary-light: HSL(var(--primary-h), var(--primary-s), 14%);
+
+  --theme-bg: HSL(155, 14%, 8%);
+  --theme-surface: rgba(14, 24, 20, 0.85);
+  --theme-card: rgba(20, 32, 27, 0.85);
+  --theme-card-border: rgba(255, 255, 255, 0.06);
+  --theme-border-color: rgba(255, 255, 255, 0.08);
+
+  --theme-text-main: HSL(155, 20%, 94%);
+  --theme-text-muted: HSL(155, 8%, 68%);
+
+  --theme-glass-bg: rgba(14, 24, 20, 0.7);
+  --theme-glass-border: rgba(255, 255, 255, 0.06);
+
+  --theme-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --theme-shadow-md: 0 8px 24px rgba(0, 0, 0, 0.3);
+  --theme-shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.4);
+  --theme-shadow-xl: 0 32px 64px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================================================
+   THEME 2: OCEAN BLUE
+   ========================================================================== */
+[data-theme="ocean-blue"] {
+  --primary-h: 212;
+  --primary-s: 88%;
+  --primary-l: 42%;
+  --accent-h: 343;
+  --accent-s: 90%;
+  --accent-l: 48%;
+
+  --theme-primary: HSL(var(--primary-h), var(--primary-s), var(--primary-l));
+  --theme-primary-hover: HSL(var(--primary-h), var(--primary-s), calc(var(--primary-l) - 6%));
+  --theme-primary-rgb: 13, 98, 201;
+  --theme-primary-light: HSL(var(--primary-h), var(--primary-s), 96%);
+
+  --theme-accent: HSL(var(--accent-h), var(--accent-s), var(--accent-l));
+  --theme-accent-hover: HSL(var(--accent-h), var(--accent-s), calc(var(--accent-l) - 6%));
+  --theme-accent-rgb: 232, 23, 86;
+  --theme-accent-light: HSL(var(--accent-h), var(--accent-s), 95%);
+
+  --theme-secondary: HSL(212, 25%, 45%);
+  --theme-secondary-hover: HSL(212, 25%, 35%);
+
+  --theme-success: HSL(142, 70%, 38%);
+  --theme-warning: HSL(38, 92%, 46%);
+  --theme-danger: HSL(355, 84%, 52%);
+  --theme-info: HSL(198, 82%, 44%);
+
+  --theme-bg: HSL(212, 14%, 96%);
+  --theme-surface: rgba(255, 255, 255, 0.85);
+  --theme-card: rgba(255, 255, 255, 0.9);
+  --theme-card-border: rgba(13, 98, 201, 0.06);
+  --theme-border-color: rgba(13, 98, 201, 0.08);
+
+  --theme-text-main: HSL(212, 40%, 10%);
+  --theme-text-muted: HSL(212, 12%, 42%);
+  --theme-text-on-primary: HSL(0, 0%, 100%);
+  --theme-text-on-accent: HSL(0, 0%, 100%);
+
+  --theme-shadow-sm: 0 2px 4px rgba(13, 98, 201, 0.02);
+  --theme-shadow-md: 0 8px 24px rgba(13, 98, 201, 0.04);
+  --theme-shadow-lg: 0 16px 40px rgba(13, 98, 201, 0.06);
+  --theme-shadow-xl: 0 32px 64px rgba(13, 98, 201, 0.08);
+
+  --theme-glass-bg: rgba(255, 255, 255, 0.7);
+  --theme-glass-border: rgba(255, 255, 255, 0.4);
+}
+
+/* Dark Mode Ocean Blue */
+[data-theme="ocean-blue"][data-mode="dark"] {
+  --primary-h: 212;
+  --primary-s: 80%;
+  --primary-l: 54%;
+
+  --theme-primary: HSL(var(--primary-h), var(--primary-s), var(--primary-l));
+  --theme-primary-hover: HSL(var(--primary-h), var(--primary-s), calc(var(--primary-l) + 8%));
+  --theme-primary-rgb: 43, 142, 235;
+  --theme-primary-light: HSL(var(--primary-h), var(--primary-s), 14%);
+
+  --theme-bg: HSL(212, 16%, 8%);
+  --theme-surface: rgba(12, 21, 32, 0.85);
+  --theme-card: rgba(18, 28, 42, 0.85);
+  --theme-card-border: rgba(255, 255, 255, 0.06);
+  --theme-border-color: rgba(255, 255, 255, 0.08);
+
+  --theme-text-main: HSL(212, 20%, 94%);
+  --theme-text-muted: HSL(212, 8%, 68%);
+
+  --theme-glass-bg: rgba(12, 21, 32, 0.75);
+  --theme-glass-border: rgba(255, 255, 255, 0.06);
+
+  --theme-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --theme-shadow-md: 0 8px 24px rgba(0, 0, 0, 0.3);
+  --theme-shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.4);
+  --theme-shadow-xl: 0 32px 64px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================================================
+   THEME 3: ROYAL PURPLE
+   ========================================================================== */
+[data-theme="royal-purple"] {
+  --primary-h: 265;
+  --primary-s: 76%;
+  --primary-l: 45%;
+  --accent-h: 343;
+  --accent-s: 90%;
+  --accent-l: 48%;
+
+  --theme-primary: HSL(var(--primary-h), var(--primary-s), var(--primary-l));
+  --theme-primary-hover: HSL(var(--primary-h), var(--primary-s), calc(var(--primary-l) - 6%));
+  --theme-primary-rgb: 110, 28, 201;
+  --theme-primary-light: HSL(var(--primary-h), var(--primary-s), 96%);
+
+  --theme-accent: HSL(var(--accent-h), var(--accent-s), var(--accent-l));
+  --theme-accent-hover: HSL(var(--accent-h), var(--accent-s), calc(var(--accent-l) - 6%));
+  --theme-accent-rgb: 232, 23, 86;
+  --theme-accent-light: HSL(var(--accent-h), var(--accent-s), 95%);
+
+  --theme-secondary: HSL(265, 25%, 45%);
+  --theme-secondary-hover: HSL(265, 25%, 35%);
+
+  --theme-success: HSL(142, 70%, 38%);
+  --theme-warning: HSL(38, 92%, 46%);
+  --theme-danger: HSL(355, 84%, 52%);
+  --theme-info: HSL(198, 82%, 44%);
+
+  --theme-bg: HSL(265, 14%, 97%);
+  --theme-surface: rgba(255, 255, 255, 0.85);
+  --theme-card: rgba(255, 255, 255, 0.9);
+  --theme-card-border: rgba(110, 28, 201, 0.06);
+  --theme-border-color: rgba(110, 28, 201, 0.08);
+
+  --theme-text-main: HSL(265, 40%, 10%);
+  --theme-text-muted: HSL(265, 12%, 42%);
+  --theme-text-on-primary: HSL(0, 0%, 100%);
+  --theme-text-on-accent: HSL(0, 0%, 100%);
+
+  --theme-shadow-sm: 0 2px 4px rgba(110, 28, 201, 0.02);
+  --theme-shadow-md: 0 8px 24px rgba(110, 28, 201, 0.04);
+  --theme-shadow-lg: 0 16px 40px rgba(110, 28, 201, 0.06);
+  --theme-shadow-xl: 0 32px 64px rgba(110, 28, 201, 0.08);
+
+  --theme-glass-bg: rgba(255, 255, 255, 0.7);
+  --theme-glass-border: rgba(255, 255, 255, 0.4);
+}
+
+/* Dark Mode Royal Purple */
+[data-theme="royal-purple"][data-mode="dark"] {
+  --primary-h: 265;
+  --primary-s: 72%;
+  --primary-l: 58%;
+
+  --theme-primary: HSL(var(--primary-h), var(--primary-s), var(--primary-l));
+  --theme-primary-hover: HSL(var(--primary-h), var(--primary-s), calc(var(--primary-l) + 8%));
+  --theme-primary-rgb: 154, 85, 237;
+  --theme-primary-light: HSL(var(--primary-h), var(--primary-s), 14%);
+
+  --theme-bg: HSL(265, 16%, 8%);
+  --theme-surface: rgba(19, 13, 26, 0.85);
+  --theme-card: rgba(28, 20, 38, 0.85);
+  --theme-card-border: rgba(255, 255, 255, 0.06);
+  --theme-border-color: rgba(255, 255, 255, 0.08);
+
+  --theme-text-main: HSL(265, 20%, 94%);
+  --theme-text-muted: HSL(265, 8%, 68%);
+
+  --theme-glass-bg: rgba(19, 13, 26, 0.75);
+  --theme-glass-border: rgba(255, 255, 255, 0.06);
+
+  --theme-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --theme-shadow-md: 0 8px 24px rgba(0, 0, 0, 0.3);
+  --theme-shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.4);
+  --theme-shadow-xl: 0 32px 64px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================================================
+   THEME 4: MIDNIGHT BLACK
+   ========================================================================== */
+[data-theme="midnight-black"] {
+  --primary-h: 220;
+  --primary-s: 15%;
+  --primary-l: 12%;
+  --accent-h: 343;
+  --accent-s: 90%;
+  --accent-l: 48%;
+
+  --theme-primary: HSL(var(--primary-h), var(--primary-s), var(--primary-l));
+  --theme-primary-hover: HSL(var(--primary-h), var(--primary-s), calc(var(--primary-l) + 10%));
+  --theme-primary-rgb: 26, 29, 36;
+  --theme-primary-light: HSL(var(--primary-h), var(--primary-s), 93%);
+
+  --theme-accent: HSL(var(--accent-h), var(--accent-s), var(--accent-l));
+  --theme-accent-hover: HSL(var(--accent-h), var(--accent-s), calc(var(--accent-l) - 6%));
+  --theme-accent-rgb: 232, 23, 86;
+  --theme-accent-light: HSL(var(--accent-h), var(--accent-s), 95%);
+
+  --theme-secondary: HSL(220, 10%, 40%);
+  --theme-secondary-hover: HSL(220, 10%, 30%);
+
+  --theme-success: HSL(142, 70%, 38%);
+  --theme-warning: HSL(38, 92%, 46%);
+  --theme-danger: HSL(355, 84%, 52%);
+  --theme-info: HSL(198, 82%, 44%);
+
+  --theme-bg: HSL(220, 12%, 94%);
+  --theme-surface: rgba(255, 255, 255, 0.85);
+  --theme-card: rgba(255, 255, 255, 0.9);
+  --theme-card-border: rgba(0, 0, 0, 0.08);
+  --theme-border-color: rgba(0, 0, 0, 0.1);
+
+  --theme-text-main: HSL(220, 30%, 8%);
+  --theme-text-muted: HSL(220, 8%, 40%);
+  --theme-text-on-primary: HSL(0, 0%, 100%);
+  --theme-text-on-accent: HSL(0, 0%, 100%);
+
+  --theme-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.02);
+  --theme-shadow-md: 0 8px 24px rgba(0, 0, 0, 0.04);
+  --theme-shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.06);
+  --theme-shadow-xl: 0 32px 64px rgba(0, 0, 0, 0.08);
+
+  --theme-glass-bg: rgba(255, 255, 255, 0.7);
+  --theme-glass-border: rgba(255, 255, 255, 0.4);
+}
+
+/* Dark Mode Midnight Black */
+[data-theme="midnight-black"][data-mode="dark"] {
+  --primary-h: 220;
+  --primary-s: 12%;
+  --primary-l: 90%;
+
+  --theme-primary: HSL(var(--primary-h), var(--primary-s), var(--primary-l));
+  --theme-primary-hover: HSL(var(--primary-h), var(--primary-s), calc(var(--primary-l) - 10%));
+  --theme-primary-rgb: 230, 233, 240;
+  --theme-primary-light: HSL(var(--primary-h), var(--primary-s), 16%);
+
+  --theme-bg: HSL(220, 14%, 6%);
+  --theme-surface: rgba(14, 15, 18, 0.9);
+  --theme-card: rgba(22, 24, 28, 0.85);
+  --theme-card-border: rgba(255, 255, 255, 0.04);
+  --theme-border-color: rgba(255, 255, 255, 0.06);
+
+  --theme-text-main: HSL(220, 8%, 94%);
+  --theme-text-muted: HSL(220, 5%, 68%);
+
+  --theme-glass-bg: rgba(14, 15, 18, 0.85);
+  --theme-glass-border: rgba(255, 255, 255, 0.06);
+
+  --theme-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --theme-shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --theme-shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.6);
+  --theme-shadow-xl: 0 32px 64px rgba(0, 0, 0, 0.75);
+}

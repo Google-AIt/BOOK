@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>خيركم (Khairkom) Design System & Platform Hub</title>
+  
+  <!-- Design System Tokens & Component Stylesheets -->
+  <link rel="stylesheet" href="./design-tokens/tokens.css">
+  <link rel="stylesheet" href="./components/components.css">
+
+  <style>
+    /* Global Shell CSS */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--theme-bg);
+      color: var(--theme-text-main);
+      font-family: var(--font-family);
+      transition: background-color var(--transition-normal), color var(--transition-normal);
+      display: flex;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Glassmorphic Sidebar Layout */
+    .sidebar {
+      width: 260px;
+      background-color: var(--theme-surface);
+      border-right: 1px solid var(--theme-border-color);
+      border-left: 1px solid var(--theme-border-color);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      box-sizing: border-box;
+      z-index: 500;
+    }
+
+    .brand-header {
+      padding: var(--space-5);
+      border-bottom: 1px solid var(--theme-border-color);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-2);
+    }
+
+    .brand-logo {
+      height: 42px;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    .navigation-list {
+      flex: 1;
+      padding: var(--space-4) var(--space-3);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+    }
+
+    .nav-group-title {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--theme-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin: var(--space-3) 0 var(--space-1) 8px;
+    }
+
+    /* Support RTL layout specifically for list item icons and text alignment */
+    [dir="rtl"] .nav-group-title {
+      margin: var(--space-3) 8px var(--space-1) 0;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--theme-text-muted);
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      transition: all var(--transition-fast);
+    }
+
+    .nav-item:hover {
+      background-color: rgba(var(--theme-primary-rgb), 0.04);
+      color: var(--theme-text-main);
+    }
+
+    .nav-item.active {
+      background-color: rgba(var(--theme-primary-rgb), 0.08);
+      color: var(--theme-primary);
+    }
+
+    .nav-item-icon {
+      font-size: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sidebar-footer {
+      padding: var(--space-4);
+      border-top: 1px solid var(--theme-border-color);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Main Content Area */
+    .content-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    /* Top Control Bar */
+    .top-bar {
+      height: 70px;
+      background-color: var(--theme-surface);
+      border-bottom: 1px solid var(--theme-border-color);
+      padding: 0 var(--space-5);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 400;
+    }
+
+    .top-bar-title {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+
+    .top-bar-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    /* Theme Option Circles */
+    .theme-switcher-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .theme-option-btn {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 1px solid var(--theme-border-color);
+      cursor: pointer;
+      padding: 0;
+      transition: transform var(--transition-fast);
+    }
+
+    .theme-option-btn:hover {
+      transform: scale(1.1);
+    }
+
+    /* Responsive Device Preview Frames */
+    .device-wrapper {
+      flex: 1;
+      padding: var(--space-6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(var(--theme-primary-rgb), 0.01);
+      box-sizing: border-box;
+      overflow-y: auto;
+    }
+
+    .device-container {
+      background-color: var(--theme-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--theme-border-color);
+      box-shadow: var(--theme-shadow-xl);
+      overflow: hidden;
+      position: relative;
+      transition: width var(--transition-slow), height var(--transition-slow), border var(--transition-slow), border-radius var(--transition-slow);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Desktop Preview Sizing */
+    .device-container.viewport-desktop {
+      width: 100%;
+      min-height: 75vh;
+      border: 1px solid var(--theme-border-color);
+      border-radius: var(--radius-lg);
+    }
+
+    /* Tablet (iPad) Preview Sizing */
+    .device-container.viewport-tablet {
+      width: 768px;
+      height: 980px;
+      border: 12px solid #222;
+      border-radius: 36px;
+    }
+
+    /* Mobile (iPhone) Preview Sizing */
+    .device-container.viewport-mobile {
+      width: 390px;
+      height: 780px;
+      border: 12px solid #1a1a1a;
+      border-radius: 40px;
+    }
+
+    .device-container.viewport-mobile::after {
+      content: "";
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 110px;
+      height: 24px;
+      background-color: #1a1a1a;
+      border-radius: 12px;
+      z-index: 1000;
+    }
+
+    .device-frame {
+      flex: 1;
+      overflow-y: auto;
+      height: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Viewport Button style */
+    .viewport-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      border: 1px solid var(--theme-border-color);
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      color: var(--theme-text-muted);
+      transition: all var(--transition-fast);
+    }
+
+    .viewport-btn:hover {
+      color: var(--theme-text-main);
+    }
+
+    .viewport-btn.active {
+      background-color: rgba(var(--theme-primary-rgb), 0.08);
+      color: var(--theme-primary);
+      border-color: var(--theme-primary);
+    }
+
+    /* Hub Static Document Panel */
+    .hub-shell {
+      flex: 1;
+      padding: var(--space-6);
+      max-width: 1000px;
+      margin: 0 auto;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    svg {
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar layout -->
+  <aside class="sidebar">
+    <div class="brand-header">
+      <img src="./assets/logo.png" alt="Khairkom Logo" class="brand-logo">
+      <span style="font-size:11px; font-weight:700; color:var(--theme-text-muted);">خيركم خيركم لأهله</span>
+    </div>
+    
+    <nav class="navigation-list">
+      
+      <div class="nav-group-title">Foundation</div>
+      <a href="#" class="nav-item active" data-section="brand">
+        <span class="nav-item-icon">🎨</span>
+        Brand Identity
+      </a>
+      <a href="#" class="nav-item" data-section="tokens">
+        <span class="nav-item-icon">🏷️</span>
+        Design Tokens
+      </a>
+      <a href="#" class="nav-item" data-section="components">
+        <span class="nav-item-icon">🧩</span>
+        UI Components
+      </a>
+
+      <div class="nav-group-title">Platform Pages</div>
+      <a href="#" class="nav-item" data-section="dashboard">
+        <span class="nav-item-icon">📊</span>
+        Overview Dashboard
+      </a>
+      <a href="#" class="nav-item" data-section="auth">
+        <span class="nav-item-icon">🔑</span>
+        Authentication state
+      </a>
+      <a href="#" class="nav-item" data-section="learning">
+        <span class="nav-item-icon">🎓</span>
+        Learning Platform
+      </a>
+      <a href="#" class="nav-item" data-section="marketplace">
+        <span class="nav-item-icon">🛒</span>
+        Values Marketplace
+      </a>
+      <a href="#" class="nav-item" data-section="community">
+        <span class="nav-item-icon">💬</span>
+        Community Forum
+      </a>
+      <a href="#" class="nav-item" data-section="ai">
+        <span class="nav-item-icon">✨</span>
+        AI Smart Assistant
+      </a>
+      <a href="#" class="nav-item" data-section="settings">
+        <span class="nav-item-icon">⚙️</span>
+        Settings & Account
+      </a>
+
+      <div class="nav-group-title">Developers</div>
+      <a href="#" class="nav-item" data-section="docs">
+        <span class="nav-item-icon">📖</span>
+        Integration Docs
+      </a>
+
+    </nav>
+
+    <div class="sidebar-footer">
+      <div style="font-size:12px;">
+        <strong>Design System</strong>
+        <div style="font-size:10px; color:var(--theme-text-muted);">v1.0.0 (High Fidelity)</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Content Workspace wrapper -->
+  <main class="content-wrapper">
+    
+    <!-- Top status controller -->
+    <header class="top-bar">
+      <div id="mainTitle" class="top-bar-title">Brand Identity Guidelines</div>
+      
+      <div class="top-bar-actions">
+        <!-- Theme palette swatch selectors -->
+        <div class="theme-switcher-wrapper">
+          <button class="theme-option-btn" style="background:#085434;" title="Emerald" onclick="App.setTheme('emerald')" data-theme-val="emerald"></button>
+          <button class="theme-option-btn" style="background:#1247d9;" title="Royal Blue" onclick="App.setTheme('royal-blue')" data-theme-val="royal-blue"></button>
+          <button class="theme-option-btn" style="background:#7a17cf;" title="Purple" onclick="App.setTheme('purple')" data-theme-val="purple"></button>
+          <button class="theme-option-btn" style="background:#1e2530;" title="Charcoal" onclick="App.setTheme('dark-pro')" data-theme-val="dark-pro"></button>
+        </div>
+
+        <!-- Language switcher -->
+        <button id="langToggleBtn" class="btn btn-outline btn-sm" onclick="App.toggleLanguage()">
+          العربية
+        </button>
+
+        <!-- Light/Dark Mode switcher -->
+        <button id="darkModeToggle" class="btn btn-outline btn-sm" onclick="App.toggleDarkMode()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+          Dark Mode
+        </button>
+
+        <!-- Viewport size adjusters -->
+        <div style="display:flex; border:1px solid var(--theme-border-color); border-radius:var(--radius-sm); padding:2px;">
+          <button class="viewport-btn active" data-viewport="desktop" title="Desktop View">Desktop</button>
+          <button class="viewport-btn" data-viewport="tablet" title="Tablet View">Tablet</button>
+          <button class="viewport-btn" data-viewport="mobile" title="Mobile View">Mobile</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- SECTION A: HUB DOCS VIEW SHELL -->
+    <div id="hubShell" class="hub-shell">
+      <div id="hubContentArea">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </div>
+
+    <!-- SECTION B: PLATFORM MOCKUP PREVIEW DEVICE WRAPPER -->
+    <div id="deviceWrapper" class="device-wrapper" style="display:none;">
+      <div id="deviceContainer" class="device-container viewport-desktop">
+        <div id="deviceFrame" class="device-frame">
+          <!-- Page loaded dynamically by app.js -->
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Load Guideline variables -->
+  <script src="./brand/brand-rules.js"></script>
+  
+  <!-- Load component helper library -->
+  <script src="./components/components.js"></script>
+  
+  <!-- Load all platform view scripts -->
+  <script src="./pages/dashboard.js"></script>
+  <script src="./pages/auth.js"></script>
+  <script src="./pages/learning.js"></script>
+  <script src="./pages/marketplace.js"></script>
+  <script src="./pages/community.js"></script>
+  <script src="./pages/ai.js"></script>
+  <script src="./pages/settings.js"></script>
+
+  <!-- Load master playground script -->
+  <script src="./js/app.js"></script>
+
+</body>
+</html>

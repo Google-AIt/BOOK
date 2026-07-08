@@ -1,0 +1,461 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;900&display=swap');
+
+:root {
+  /* Fonts */
+  --font-family: 'Plus Jakarta Sans', 'Tajawal', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  /* Spacing Grid (4px base) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* Border Radii */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Opacity Settings */
+  --opacity-disabled: 0.4;
+  --opacity-muted: 0.65;
+  --opacity-glass: 0.15;
+
+  /* Motion and Transitions */
+  --transition-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 450ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================================
+   THEME 1: EMERALD (Default)
+   ========================================================================== */
+
+/* Light Mode */
+:root, [data-theme="emerald"] {
+  --primary-h: 155;
+  --primary-s: 80%;
+  --primary-l: 25%;
+  --accent-h: 42;
+  --accent-s: 95%;
+  --accent-l: 43%;
+
+  --theme-primary: HSL(var(--primary-h), var(--primary-s), var(--primary-l));
+  --theme-primary-hover: HSL(var(--primary-h), var(--primary-s), calc(var(--primary-l) - 6%));
+  --theme-primary-rgb: 8, 84, 52;
+  --theme-primary-light: HSL(var(--primary-h), var(--primary-s), 95%);
+
+  --theme-accent: HSL(var(--accent-h), var(--accent-s), var(--accent-l));
+  --theme-accent-hover: HSL(var(--accent-h), var(--accent-s), calc(var(--accent-l) - 8%));
+  --theme-accent-rgb: 214, 143, 5;
+  --theme-accent-light: HSL(var(--accent-h), var(--accent-s), 95%);
+
+  --theme-secondary: HSL(155, 30%, 45%);
+  --theme-secondary-hover: HSL(155, 30%, 35%);
+
+  --theme-success: HSL(142, 70%, 40%);
+  --theme-warning: HSL(38, 92%, 48%);
+  --theme-danger: HSL(355, 84%, 55%);
+  --theme-info: HSL(200, 80%, 45%);
+
+  /* Environment & Surfaces */
+  --theme-bg: HSL(40, 20%, 98%);
+  --theme-surface: HSL(0, 0%, 100%);
+  --theme-card: HSL(0, 0%, 100%);
+  --theme-card-border: rgba(8, 84, 52, 0.06);
+  --theme-border-color: rgba(8, 84, 52, 0.08);
+
+  /* Typography */
+  --theme-text-main: HSL(155, 35%, 12%);
+  --theme-text-muted: HSL(155, 15%, 45%);
+  --theme-text-on-primary: HSL(0, 0%, 100%);
+  --theme-text-on-accent: HSL(0, 0%, 100%);
+
+  /* Shadow Elevation */
+  --theme-shadow-sm: 0 1px 2px rgba(8, 84, 52, 0.03);
+  --theme-shadow-md: 0 4px 16px rgba(8, 84, 52, 0.04), 0 1px 3px rgba(8, 84, 52, 0.02);
+  --theme-shadow-lg: 0 12px 32px rgba(8, 84, 52, 0.06), 0 2px 8px rgba(8, 84, 52, 0.03);
+  --theme-shadow-xl: 0 24px 48px rgba(8, 84, 52, 0.08), 0 4px 16px rgba(8, 84, 52, 0.04);
+
+  /* Soft Glassmorphism */
+  --theme-glass-bg: rgba(255, 255, 255, 0.75);
+  --theme-glass-border: rgba(8, 84, 52, 0.08);
+}
+
+/* Dark Mode */
+[data-theme="emerald"][data-mode="dark"] {
+  --primary-h: 155;
+  --primary-s: 65%;
+  --primary-l: 45%;
+  --accent-h: 42;
+  --accent-s: 90%;
+  --accent-l: 55%;
+
+  --theme-primary: HSL(var(--primary-h), var(--primary-s), var(--primary-l));
+  --theme-primary-hover: HSL(var(--primary-h), var(--primary-s), calc(var(--primary-l) + 8%));
+  --theme-primary-rgb: 40, 189, 129;
+  --theme-primary-light: HSL(var(--primary-h), var(--primary-s), 12%);
+
+  --theme-accent: HSL(var(--accent-h), var(--accent-s), var(--accent-l));
+  --theme-accent-hover: HSL(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 8%));
+  --theme-accent-rgb: 242, 178, 39;
+  --theme-accent-light: HSL(var(--accent-h), var(--accent-s), 12%);
+
+  --theme-secondary: HSL(155, 20%, 65%);
+  --theme-secondary-hover: HSL(155, 20%, 75%);
+
+  --theme-success: HSL(142, 60%, 50%);
+  --theme-warning: HSL(38, 85%, 55%);
+  --theme-danger: HSL(355, 75%, 60%);
+  --theme-info: HSL(200, 75%, 55%);
+
+  /* Environment & Surfaces */
+  --theme-bg: HSL(160, 12%, 8%);
+  --theme-surface: HSL(160, 10%, 12%);
+  --theme-card: HSL(160, 10%, 14%);
+  --theme-card-border: rgba(255, 255, 255, 0.05);
+  --theme-border-color: rgba(255, 255, 255, 0.08);
+
+  /* Typography */
+  --theme-text-main: HSL(160, 10%, 93%);
+  --theme-text-muted: HSL(160, 5%, 65%);
+  --theme-text-on-primary: HSL(160, 12%, 8%);
+  --theme-text-on-accent: HSL(160, 12%, 8%);
+
+  /* Shadows */
+  --theme-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --theme-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.15);
+  --theme-shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2);
+  --theme-shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.5), 0 4px 16px rgba(0, 0, 0, 0.3);
+
+  /* Glassmorphism */
+  --theme-glass-bg: rgba(20, 30, 25, 0.7);
+  --theme-glass-border: rgba(255, 255, 255, 0.08);
+}
+
+
+/* ==========================================================================
+   THEME 2: ROYAL BLUE
+   ========================================================================== */
+
+/* Light Mode */
+[data-theme="royal-blue"] {
+  --primary-h: 224;
+  --primary-s: 85%;
+  --primary-l: 46%;
+  --accent-h: 192;
+  --accent-s: 95%;
+  --accent-l: 40%;
+
+  --theme-primary: HSL(var(--primary-h), var(--primary-s), var(--primary-l));
+  --theme-primary-hover: HSL(var(--primary-h), var(--primary-s), calc(var(--primary-l) - 6%));
+  --theme-primary-rgb: 18, 71, 217;
+  --theme-primary-light: HSL(var(--primary-h), var(--primary-s), 96%);
+
+  --theme-accent: HSL(var(--accent-h), var(--accent-s), var(--accent-l));
+  --theme-accent-hover: HSL(var(--accent-h), var(--accent-s), calc(var(--accent-l) - 6%));
+  --theme-accent-rgb: 5, 162, 199;
+  --theme-accent-light: HSL(var(--accent-h), var(--accent-s), 96%);
+
+  --theme-secondary: HSL(220, 25%, 45%);
+  --theme-secondary-hover: HSL(220, 25%, 35%);
+
+  --theme-success: HSL(142, 70%, 40%);
+  --theme-warning: HSL(38, 92%, 48%);
+  --theme-danger: HSL(355, 84%, 55%);
+  --theme-info: HSL(200, 80%, 45%);
+
+  /* Environment */
+  --theme-bg: HSL(220, 20%, 96%);
+  --theme-surface: HSL(0, 0%, 100%);
+  --theme-card: HSL(0, 0%, 100%);
+  --theme-card-border: rgba(18, 71, 217, 0.05);
+  --theme-border-color: rgba(18, 71, 217, 0.08);
+
+  /* Typography */
+  --theme-text-main: HSL(224, 40%, 12%);
+  --theme-text-muted: HSL(220, 15%, 45%);
+  --theme-text-on-primary: HSL(0, 0%, 100%);
+  --theme-text-on-accent: HSL(0, 0%, 100%);
+
+  /* Shadows */
+  --theme-shadow-sm: 0 1px 2px rgba(18, 71, 217, 0.03);
+  --theme-shadow-md: 0 4px 16px rgba(18, 71, 217, 0.04), 0 1px 3px rgba(18, 71, 217, 0.02);
+  --theme-shadow-lg: 0 12px 32px rgba(18, 71, 217, 0.06), 0 2px 8px rgba(18, 71, 217, 0.03);
+  --theme-shadow-xl: 0 24px 48px rgba(18, 71, 217, 0.08), 0 4px 16px rgba(18, 71, 217, 0.04);
+
+  /* Glass */
+  --theme-glass-bg: rgba(255, 255, 255, 0.75);
+  --theme-glass-border: rgba(18, 71, 217, 0.08);
+}
+
+/* Dark Mode */
+[data-theme="royal-blue"][data-mode="dark"] {
+  --primary-h: 224;
+  --primary-s: 75%;
+  --primary-l: 58%;
+  --accent-h: 192;
+  --accent-s: 85%;
+  --accent-l: 52%;
+
+  --theme-primary: HSL(var(--primary-h), var(--primary-s), var(--primary-l));
+  --theme-primary-hover: HSL(var(--primary-h), var(--primary-s), calc(var(--primary-l) + 8%));
+  --theme-primary-rgb: 66, 127, 247;
+  --theme-primary-light: HSL(var(--primary-h), var(--primary-s), 12%);
+
+  --theme-accent: HSL(var(--accent-h), var(--accent-s), var(--accent-l));
+  --theme-accent-hover: HSL(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 8%));
+  --theme-accent-rgb: 66, 203, 237;
+  --theme-accent-light: HSL(var(--accent-h), var(--accent-s), 12%);
+
+  --theme-secondary: HSL(220, 20%, 65%);
+  --theme-secondary-hover: HSL(220, 20%, 75%);
+
+  --theme-success: HSL(142, 60%, 50%);
+  --theme-warning: HSL(38, 85%, 55%);
+  --theme-danger: HSL(355, 75%, 60%);
+  --theme-info: HSL(200, 75%, 55%);
+
+  /* Environment */
+  --theme-bg: HSL(224, 15%, 9%);
+  --theme-surface: HSL(224, 12%, 12%);
+  --theme-card: HSL(224, 12%, 14%);
+  --theme-card-border: rgba(255, 255, 255, 0.05);
+  --theme-border-color: rgba(255, 255, 255, 0.08);
+
+  /* Typography */
+  --theme-text-main: HSL(224, 10%, 93%);
+  --theme-text-muted: HSL(220, 5%, 65%);
+  --theme-text-on-primary: HSL(224, 15%, 8%);
+  --theme-text-on-accent: HSL(224, 15%, 8%);
+
+  /* Shadows */
+  --theme-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --theme-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.15);
+  --theme-shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2);
+  --theme-shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.5), 0 4px 16px rgba(0, 0, 0, 0.3);
+
+  /* Glass */
+  --theme-glass-bg: rgba(15, 22, 35, 0.7);
+  --theme-glass-border: rgba(255, 255, 255, 0.08);
+}
+
+
+/* ==========================================================================
+   THEME 3: PURPLE
+   ========================================================================== */
+
+/* Light Mode */
+[data-theme="purple"] {
+  --primary-h: 270;
+  --primary-s: 80%;
+  --primary-l: 45%;
+  --accent-h: 332;
+  --accent-s: 90%;
+  --accent-l: 50%;
+
+  --theme-primary: HSL(var(--primary-h), var(--primary-s), var(--primary-l));
+  --theme-primary-hover: HSL(var(--primary-h), var(--primary-s), calc(var(--primary-l) - 6%));
+  --theme-primary-rgb: 122, 23, 207;
+  --theme-primary-light: HSL(var(--primary-h), var(--primary-s), 96%);
+
+  --theme-accent: HSL(var(--accent-h), var(--accent-s), var(--accent-l));
+  --theme-accent-hover: HSL(var(--accent-h), var(--accent-s), calc(var(--accent-l) - 6%));
+  --theme-accent-rgb: 242, 13, 116;
+  --theme-accent-light: HSL(var(--accent-h), var(--accent-s), 96%);
+
+  --theme-secondary: HSL(270, 25%, 45%);
+  --theme-secondary-hover: HSL(270, 25%, 35%);
+
+  --theme-success: HSL(142, 70%, 40%);
+  --theme-warning: HSL(38, 92%, 48%);
+  --theme-danger: HSL(355, 84%, 55%);
+  --theme-info: HSL(200, 80%, 45%);
+
+  /* Environment */
+  --theme-bg: HSL(270, 10%, 98%);
+  --theme-surface: HSL(0, 0%, 100%);
+  --theme-card: HSL(0, 0%, 100%);
+  --theme-card-border: rgba(122, 23, 207, 0.05);
+  --theme-border-color: rgba(122, 23, 207, 0.08);
+
+  /* Typography */
+  --theme-text-main: HSL(270, 40%, 12%);
+  --theme-text-muted: HSL(270, 15%, 45%);
+  --theme-text-on-primary: HSL(0, 0%, 100%);
+  --theme-text-on-accent: HSL(0, 0%, 100%);
+
+  /* Shadows */
+  --theme-shadow-sm: 0 1px 2px rgba(122, 23, 207, 0.03);
+  --theme-shadow-md: 0 4px 16px rgba(122, 23, 207, 0.04), 0 1px 3px rgba(122, 23, 207, 0.02);
+  --theme-shadow-lg: 0 12px 32px rgba(122, 23, 207, 0.06), 0 2px 8px rgba(122, 23, 207, 0.03);
+  --theme-shadow-xl: 0 24px 48px rgba(122, 23, 207, 0.08), 0 4px 16px rgba(122, 23, 207, 0.04);
+
+  /* Glass */
+  --theme-glass-bg: rgba(255, 255, 255, 0.75);
+  --theme-glass-border: rgba(122, 23, 207, 0.08);
+}
+
+/* Dark Mode */
+[data-theme="purple"][data-mode="dark"] {
+  --primary-h: 270;
+  --primary-s: 75%;
+  --primary-l: 60%;
+  --accent-h: 332;
+  --accent-s: 85%;
+  --accent-l: 62%;
+
+  --theme-primary: HSL(var(--primary-h), var(--primary-s), var(--primary-l));
+  --theme-primary-hover: HSL(var(--primary-h), var(--primary-s), calc(var(--primary-l) + 8%));
+  --theme-primary-rgb: 168, 93, 247;
+  --theme-primary-light: HSL(var(--primary-h), var(--primary-s), 12%);
+
+  --theme-accent: HSL(var(--accent-h), var(--accent-s), var(--accent-l));
+  --theme-accent-hover: HSL(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 8%));
+  --theme-accent-rgb: 247, 104, 171;
+  --theme-accent-light: HSL(var(--accent-h), var(--accent-s), 12%);
+
+  --theme-secondary: HSL(270, 20%, 65%);
+  --theme-secondary-hover: HSL(270, 20%, 75%);
+
+  --theme-success: HSL(142, 60%, 50%);
+  --theme-warning: HSL(38, 85%, 55%);
+  --theme-danger: HSL(355, 75%, 60%);
+  --theme-info: HSL(200, 75%, 55%);
+
+  /* Environment */
+  --theme-bg: HSL(270, 15%, 8%);
+  --theme-surface: HSL(270, 12%, 12%);
+  --theme-card: HSL(270, 12%, 14%);
+  --theme-card-border: rgba(255, 255, 255, 0.05);
+  --theme-border-color: rgba(255, 255, 255, 0.08);
+
+  /* Typography */
+  --theme-text-main: HSL(270, 10%, 93%);
+  --theme-text-muted: HSL(270, 5%, 65%);
+  --theme-text-on-primary: HSL(270, 15%, 8%);
+  --theme-text-on-accent: HSL(270, 15%, 8%);
+
+  /* Shadows */
+  --theme-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --theme-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.15);
+  --theme-shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2);
+  --theme-shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.5), 0 4px 16px rgba(0, 0, 0, 0.3);
+
+  /* Glass */
+  --theme-glass-bg: rgba(25, 15, 35, 0.7);
+  --theme-glass-border: rgba(255, 255, 255, 0.08);
+}
+
+
+/* ==========================================================================
+   THEME 4: DARK PROFESSIONAL
+   ========================================================================== */
+
+/* Light Mode */
+[data-theme="dark-pro"] {
+  --primary-h: 215;
+  --primary-s: 20%;
+  --primary-l: 15%;
+  --accent-h: 145;
+  --accent-s: 80%;
+  --accent-l: 35%;
+
+  --theme-primary: HSL(var(--primary-h), var(--primary-s), var(--primary-l));
+  --theme-primary-hover: HSL(var(--primary-h), var(--primary-s), calc(var(--primary-l) + 10%));
+  --theme-primary-rgb: 30, 37, 48;
+  --theme-primary-light: HSL(var(--primary-h), var(--primary-s), 93%);
+
+  --theme-accent: HSL(var(--accent-h), var(--accent-s), var(--accent-l));
+  --theme-accent-hover: HSL(var(--accent-h), var(--accent-s), calc(var(--accent-l) - 6%));
+  --theme-accent-rgb: 18, 125, 68;
+  --theme-accent-light: HSL(var(--accent-h), var(--accent-s), 95%);
+
+  --theme-secondary: HSL(215, 15%, 45%);
+  --theme-secondary-hover: HSL(215, 15%, 35%);
+
+  --theme-success: HSL(142, 70%, 40%);
+  --theme-warning: HSL(38, 92%, 48%);
+  --theme-danger: HSL(355, 84%, 55%);
+  --theme-info: HSL(200, 80%, 45%);
+
+  /* Environment */
+  --theme-bg: HSL(210, 15%, 95%);
+  --theme-surface: HSL(0, 0%, 100%);
+  --theme-card: HSL(0, 0%, 100%);
+  --theme-card-border: rgba(30, 37, 48, 0.06);
+  --theme-border-color: rgba(30, 37, 48, 0.08);
+
+  /* Typography */
+  --theme-text-main: HSL(215, 30%, 12%);
+  --theme-text-muted: HSL(215, 10%, 45%);
+  --theme-text-on-primary: HSL(0, 0%, 100%);
+  --theme-text-on-accent: HSL(0, 0%, 100%);
+
+  /* Shadows */
+  --theme-shadow-sm: 0 1px 2px rgba(30, 37, 48, 0.03);
+  --theme-shadow-md: 0 4px 16px rgba(30, 37, 48, 0.04), 0 1px 3px rgba(30, 37, 48, 0.02);
+  --theme-shadow-lg: 0 12px 32px rgba(30, 37, 48, 0.06), 0 2px 8px rgba(30, 37, 48, 0.03);
+  --theme-shadow-xl: 0 24px 48px rgba(30, 37, 48, 0.08), 0 4px 16px rgba(30, 37, 48, 0.04);
+
+  /* Glass */
+  --theme-glass-bg: rgba(255, 255, 255, 0.75);
+  --theme-glass-border: rgba(30, 37, 48, 0.08);
+}
+
+/* Dark Mode */
+[data-theme="dark-pro"][data-mode="dark"] {
+  --primary-h: 215;
+  --primary-s: 15%;
+  --primary-l: 85%;
+  --accent-h: 145;
+  --accent-s: 75%;
+  --accent-l: 50%;
+
+  --theme-primary: HSL(var(--primary-h), var(--primary-s), var(--primary-l));
+  --theme-primary-hover: HSL(var(--primary-h), var(--primary-s), calc(var(--primary-l) - 10%));
+  --theme-primary-rgb: 212, 219, 227;
+  --theme-primary-light: HSL(var(--primary-h), var(--primary-s), 18%);
+
+  --theme-accent: HSL(var(--accent-h), var(--accent-s), var(--accent-l));
+  --theme-accent-hover: HSL(var(--accent-h), var(--accent-s), calc(var(--accent-l) + 8%));
+  --theme-accent-rgb: 38, 217, 121;
+  --theme-accent-light: HSL(var(--accent-h), var(--accent-s), 12%);
+
+  --theme-secondary: HSL(215, 12%, 65%);
+  --theme-secondary-hover: HSL(215, 12%, 75%);
+
+  --theme-success: HSL(142, 60%, 50%);
+  --theme-warning: HSL(38, 85%, 55%);
+  --theme-danger: HSL(355, 75%, 60%);
+  --theme-info: HSL(200, 75%, 55%);
+
+  /* Environment */
+  --theme-bg: HSL(215, 15%, 7%);
+  --theme-surface: HSL(215, 12%, 10%);
+  --theme-card: HSL(215, 12%, 12%);
+  --theme-card-border: rgba(255, 255, 255, 0.04);
+  --theme-border-color: rgba(255, 255, 255, 0.08);
+
+  /* Typography */
+  --theme-text-main: HSL(215, 10%, 93%);
+  --theme-text-muted: HSL(215, 5%, 65%);
+  --theme-text-on-primary: HSL(215, 15%, 8%);
+  --theme-text-on-accent: HSL(215, 15%, 8%);
+
+  /* Shadows */
+  --theme-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.25);
+  --theme-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.35), 0 1px 3px rgba(0, 0, 0, 0.2);
+  --theme-shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.45), 0 2px 8px rgba(0, 0, 0, 0.25);
+  --theme-shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.55), 0 4px 16px rgba(0, 0, 0, 0.35);
+
+  /* Glass */
+  --theme-glass-bg: rgba(18, 22, 28, 0.75);
+  --theme-glass-border: rgba(255, 255, 255, 0.08);
+}

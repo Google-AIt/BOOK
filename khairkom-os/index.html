@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khairkom OS - Futuristic Operating System Ecosystem</title>
+  <meta name="description" content="Khairkom OS - A premium glassmorphic digital ecosystem with unified workspaces for education, commerce, intelligence, and project planning.">
+  
+  <!-- Preload fonts & stylesheets -->
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/shell.css">
+  <link rel="stylesheet" href="./css/workspaces.css">
+</head>
+<body>
+
+  <!-- Live Wallpaper Gradient Orbs -->
+  <div class="os-background">
+    <div class="os-gradient-orb orb-1"></div>
+    <div class="os-gradient-orb orb-2"></div>
+  </div>
+
+  <!-- ==========================================================================
+       1. WELCOME BOOT / UNLOCK SCREEN
+       ========================================================================== -->
+  <div class="boot-screen" id="bootScreen">
+    <!-- Language Toggle on Welcome Screen -->
+    <div style="position: absolute; top: var(--space-4); right: var(--space-4); z-index: 100;">
+      <button class="btn btn-outline btn-sm" id="bootLangToggle" style="backdrop-filter: blur(10px); background:rgba(255,255,255,0.05);">
+        العربية
+      </button>
+    </div>
+
+    <div class="boot-container">
+      <div class="boot-logo-wrapper">
+        <img src="./assets/logo.png" alt="Khairkom Official Logo" class="boot-logo">
+      </div>
+      
+      <h1 class="boot-welcome-arabic" id="bootWelcomeAr">مرحباً بك في نظام خيركم</h1>
+      <div class="boot-welcome-english" id="bootWelcomeEn">WELCOME TO KHAIRKOM OS</div>
+      
+      <div class="boot-profile">
+        <div class="boot-avatar">SO</div>
+        <div class="boot-username">Sarah Omar</div>
+      </div>
+      
+      <button class="boot-unlock-btn" id="bootUnlockBtn">
+        <span id="bootUnlockBtnText">Unlock Workspace</span>
+        <span>→</span>
+      </button>
+      
+      <div class="boot-footer">
+        <span>v1.0.0 Stable</span>
+        <span>•</span>
+        <span>Secured Node</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       2. MAIN OS DESKTOP SHELL
+       ========================================================================== -->
+  <div class="os-desktop-shell" id="osDesktopShell">
+    
+    <!-- Top System Menu & Accessories Bar -->
+    <header class="os-status-bar">
+      <div class="status-bar-left">
+        <span style="font-weight:900; color:var(--theme-text-main);">KHAIRKOM OS</span>
+        <span>•</span>
+        <span style="color:var(--theme-success);">● Online</span>
+      </div>
+
+      <div class="status-bar-right">
+        <!-- Live Battery -->
+        <span class="status-item" id="statusBarBattery">98% 🔋</span>
+        
+        <!-- Mock WiFi -->
+        <span class="status-item">📶 LTE</span>
+        
+        <!-- Live Clock -->
+        <span class="status-item" id="statusBarClock">12:00 PM</span>
+
+        <!-- Theme Selection Circles -->
+        <div style="display:flex; align-items:center; gap:6px; margin: 0 10px; border-left: 1px solid var(--theme-border-color); border-right: 1px solid var(--theme-border-color); padding: 0 10px;">
+          <button class="theme-option-btn" style="background:#085434; width:16px; height:16px;" title="Emerald Green" data-theme-val="emerald"></button>
+          <button class="theme-option-btn" style="background:#0d62c9; width:16px; height:16px;" title="Ocean Blue" data-theme-val="ocean-blue"></button>
+          <button class="theme-option-btn" style="background:#6e1cc9; width:16px; height:16px;" title="Royal Purple" data-theme-val="royal-purple"></button>
+          <button class="theme-option-btn" style="background:#1a1d24; width:16px; height:16px;" title="Midnight Black" data-theme-val="midnight-black"></button>
+        </div>
+
+        <!-- Language toggle -->
+        <button id="langToggleBtn" class="btn btn-outline btn-sm" onclick="App.toggleLanguage()" style="padding: 2px 8px; font-size:10px;">
+          العربية
+        </button>
+
+        <!-- Mode Toggle -->
+        <button id="darkModeToggle" class="btn btn-outline btn-sm" onclick="App.toggleDarkMode()" style="padding: 2px 8px; font-size:10px;">
+          ☀️ Light Mode
+        </button>
+      </div>
+    </header>
+
+    <!-- Main OS Layout split -->
+    <div class="os-desktop-body">
+      
+      <!-- Side navigation panel -->
+      <aside class="os-sidebar">
+        <div class="sidebar-header">
+          <img src="./assets/logo.png" alt="Khairkom Logo" class="sidebar-logo">
+          <span class="sidebar-logo-text">KHAIRKOM OS</span>
+        </div>
+
+        <div class="sidebar-scroll">
+          
+          <div class="sidebar-group-title">Workspaces</div>
+          <a href="#" class="sidebar-item" data-workspace="home">
+            <span class="sidebar-item-label"><span class="sidebar-item-icon">🏠</span> Home Dashboard</span>
+          </a>
+          <a href="#" class="sidebar-item" data-workspace="academy">
+            <span class="sidebar-item-label"><span class="sidebar-item-icon">🎓</span> Academy Center</span>
+            <span class="sidebar-item-badge">3</span>
+          </a>
+          <a href="#" class="sidebar-item" data-workspace="commerce">
+            <span class="sidebar-item-label"><span class="sidebar-item-icon">🛍</span> Commerce Hub</span>
+          </a>
+          <a href="#" class="sidebar-item" data-workspace="planning">
+            <span class="sidebar-item-label"><span class="sidebar-item-icon">📅</span> Planning Workspace</span>
+            <span class="sidebar-item-badge">5</span>
+          </a>
+
+          <div class="sidebar-group-title">Intelligence</div>
+          <a href="#" class="sidebar-item" data-workspace="ai">
+            <span class="sidebar-item-label"><span class="sidebar-item-icon">🤖</span> AI Engine</span>
+            <span class="sidebar-item-badge" style="background:var(--theme-primary);">AI</span>
+          </a>
+          <a href="#" class="sidebar-item" data-workspace="analytics">
+            <span class="sidebar-item-label"><span class="sidebar-item-icon">📊</span> Analytics Suite</span>
+          </a>
+
+          <div class="sidebar-group-title">System Deliverables</div>
+          <a href="#" class="sidebar-item" data-workspace="brand-guidelines">
+            <span class="sidebar-item-label"><span class="sidebar-item-icon">🎨</span> Brand Guidelines</span>
+          </a>
+          <a href="#" class="sidebar-item" data-workspace="design-system">
+            <span class="sidebar-item-label"><span class="sidebar-item-icon">🧩</span> Design Tokens</span>
+          </a>
+          <a href="#" class="sidebar-item" data-workspace="presentation">
+            <span class="sidebar-item-label"><span class="sidebar-item-icon">📈</span> Slides Pitch</span>
+          </a>
+          <a href="#" class="sidebar-item" data-workspace="handoff">
+            <span class="sidebar-item-label"><span class="sidebar-item-icon">💻</span> Dev Handoff</span>
+          </a>
+          <a href="#" class="sidebar-item" data-workspace="marketing-site">
+            <span class="sidebar-item-label"><span class="sidebar-item-icon">🌐</span> Marketing Site</span>
+          </a>
+          
+          <!-- Hidden/Extra links that can be launched via dock/shortcuts -->
+          <a href="#" class="sidebar-item" data-workspace="knowledge" style="display:none;"></a>
+          <a href="#" class="sidebar-item" data-workspace="communication" style="display:none;"></a>
+          <a href="#" class="sidebar-item" data-workspace="admin" style="display:none;"></a>
+
+        </div>
+
+        <div class="sidebar-footer">
+          <div class="user-profile-widget">
+            <div class="user-avatar-sm">SO</div>
+            <div class="user-details-sm">
+              <span class="user-name-sm">Sarah Omar</span>
+              <span class="user-role-sm">Super Admin</span>
+            </div>
+          </div>
+          <span style="font-size:14px; cursor:pointer;" onclick="alert('Access configurations opened!')">⚙️</span>
+        </div>
+      </aside>
+
+      <!-- Viewport Frame Render -->
+      <main class="os-main-viewport">
+        
+        <!-- Deliverable Form Factors Selector -->
+        <section class="deliverable-selector-bar">
+          <div class="deliverable-title">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/></svg>
+            <span id="headerWorkspaceTitle">Home Dashboard</span>
+          </div>
+
+          <div class="deliverable-options">
+            <button class="deliverable-btn active" data-viewport-val="desktop">Desktop App</button>
+            <button class="deliverable-btn" data-viewport-val="tablet">Tablet View</button>
+            <button class="deliverable-btn" data-viewport-val="mobile">Mobile View</button>
+          </div>
+        </section>
+
+        <!-- Viewport content frame -->
+        <div class="os-viewport-content-frame">
+          <div class="device-frame-container viewport-desktop" id="deviceFrameContainer">
+            
+            <!-- Simulator Status Bar -->
+            <div class="simulator-status-bar">
+              <span>9:41 AM</span>
+              <span style="letter-spacing:1px;">📶 ⚡ 🔋</span>
+            </div>
+            
+            <!-- Dynamic Scroll Area -->
+            <div class="device-content-scroll">
+              <div id="workspaceContent">
+                <!-- Loaded dynamically by js/workspaces.js -->
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- MacOS-style Desktop Dock Navigation -->
+        <div class="os-dock-wrapper">
+          <div class="os-dock">
+            <div class="dock-item" data-workspace="home" title="Home">
+              🏠
+              <div class="dock-tooltip">Home</div>
+            </div>
+            <div class="dock-item" data-workspace="academy" title="Academy">
+              🎓
+              <div class="dock-tooltip">Academy</div>
+            </div>
+            <div class="dock-item" data-workspace="commerce" title="Commerce">
+              🛍
+              <div class="dock-tooltip">Commerce</div>
+            </div>
+            <div class="dock-item" data-workspace="ai" title="AI Engine">
+              🤖
+              <div class="dock-tooltip">AI Engine</div>
+            </div>
+            <div class="dock-item" data-workspace="planning" title="Kanban Planning">
+              📅
+              <div class="dock-tooltip">Planning</div>
+            </div>
+            <div class="dock-item" data-workspace="knowledge" title="Knowledge Hub">
+              📁
+              <div class="dock-tooltip">Knowledge</div>
+            </div>
+            <div class="dock-item" data-workspace="communication" title="Comm Chat">
+              💬
+              <div class="dock-tooltip">Comm Chat</div>
+            </div>
+            <div class="dock-item" data-workspace="admin" title="Admin Options">
+              ⚙️
+              <div class="dock-tooltip">Admin</div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+
+    </div>
+  </div>
+
+  <!-- Loading script files -->
+  <script src="./js/data.js"></script>
+  <script src="./js/workspaces.js"></script>
+  <script src="./js/app.js"></script>
+
+</body>
+</html>

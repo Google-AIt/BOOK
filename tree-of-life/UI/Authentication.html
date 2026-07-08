@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تسجيل الدخول – شجرة الحياة</title>
+  <link rel="stylesheet" href="../css/brand-system.css">
+  <link rel="stylesheet" href="../css/app-ui.css">
+  <style>
+    body {
+      background-color: var(--color-beige-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+    }
+    .auth-container {
+      background-color: var(--color-white);
+      border-radius: 24px;
+      border: 1px solid var(--color-beige-dark);
+      box-shadow: var(--luxury-shadow);
+      width: 420px;
+      padding: 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .auth-container::before {
+      content: "";
+      position: absolute;
+      top: -50px; left: -50px;
+      width: 150px; height: 150px;
+      background-color: var(--color-khairukum-pink-soft);
+      border-radius: 50%;
+      z-index: 1;
+    }
+    .auth-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .auth-logo {
+      height: 45px;
+      margin: 0 auto 10px;
+    }
+    .auth-title {
+      font-family: 'Reem Kufi', sans-serif;
+      font-size: 1.4rem;
+      color: var(--color-green-dark);
+    }
+    .form-group {
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .form-group label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--color-charcoal);
+    }
+    .submit-btn {
+      background: var(--gold-foil-gradient);
+      color: #3f310f;
+      border: none;
+      padding: 14px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+      transition: var(--transition-smooth);
+    }
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35);
+    }
+    .auth-footer {
+      font-size: 0.75rem;
+      opacity: 0.8;
+      margin-top: 10px;
+    }
+    .auth-footer a {
+      color: var(--color-khairukum-pink);
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-content">
+      <img src="Logo/logo.png" class="auth-logo" alt="خيركم">
+      <h2 class="auth-title">مرحباً بكما في شجرة الحياة</h2>
+      <p style="font-size: 0.8rem; opacity: 0.7; margin-top: -10px;">بوابة التواصل العائلي وتخليد ذكريات العمر</p>
+      
+      <form style="display: flex; flex-direction: column; gap: 15px;" onsubmit="event.preventDefault(); window.location.href='../index.html#app';">
+        <div class="form-group">
+          <label>البريد الإلكتروني للأسرة</label>
+          <input type="email" class="ui-kit-input" style="width: 100%;" placeholder="family@khairukum.org" required>
+        </div>
+        
+        <div class="form-group">
+          <label>كلمة المرور الخاصة بالمنزل</label>
+          <input type="password" class="ui-kit-input" style="width: 100%;" placeholder="••••••••" required>
+        </div>
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem;">
+          <label class="ui-kit-checkbox">
+            <input type="checkbox">
+            <span>تذكرني على هذا الجهاز 💻</span>
+          </label>
+          <a href="#" style="color: var(--color-green-olive); font-weight: 600;">نسيت كلمة المرور؟</a>
+        </div>
+        
+        <button type="submit" class="submit-btn">دخول لوحة العائلة 🌳</button>
+      </form>
+      
+      <div class="auth-divider" style="height: 1px; background-color: var(--color-beige-dark); margin: 10px 0;"></div>
+      
+      <div class="auth-footer">
+        ليس لديكم حساب عائلي؟ <a href="#">سجلوا الآن واصنعوا شجرتكم ✨</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

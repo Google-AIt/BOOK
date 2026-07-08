@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>البطاقات – نظام تصميم شجرة الحياة</title>
+  <link rel="stylesheet" href="../../css/brand-system.css">
+  <link rel="stylesheet" href="../../css/app-ui.css">
+  <style>
+    body { padding: 40px; background-color: var(--color-beige-light); font-family: 'Cairo', sans-serif; }
+    .card-row { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>مكونات البطاقات (Card Components) 🎴</h1>
+  <p>تُستخدم البطاقات لاحتواء النصوص والذكريات وأقسام لوحة التحكم.</p>
+  
+  <div class="card-row">
+    <!-- Standard Luxury Card -->
+    <div class="ui-kit-card" style="width: 300px;">
+      <h3 style="font-family: 'Reem Kufi', sans-serif; color: var(--color-green-dark); margin: 0;">بطاقة عائلية</h3>
+      <p style="font-size: 0.8rem; opacity: 0.8; margin-top: 10px;">تحتوي على حواف ناعمة بقطر 16 بكسل وظل ورقي يطفو فوق أبيض السطح.</p>
+      <button class="ui-kit-btn ui-kit-btn-outline" style="width: 100%; margin-top: 10px;">تعديل البيانات</button>
+    </div>
+    
+    <!-- Colored Leaf Card -->
+    <div class="gift-card-base">
+      <div class="gift-card-header">
+        <span class="gift-card-title">بطاقة إهداء فاخرة</span>
+        <span style="font-size: 0.8rem;">❤️</span>
+      </div>
+      <p class="gift-card-content">تحتوي على إطار مذهب ناعم في الحواف الخارجية ومساحة لكتابة المشاعر المشتركة.</p>
+      <div class="gift-card-footer">
+        <span>بكل حب ومودة</span>
+        <span class="font-premium-en" style="color: var(--gold-primary);">Tree of Life</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

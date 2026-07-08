@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الصفحة غير موجودة - 404</title>
+  <link rel="stylesheet" href="../css/brand-system.css">
+  <link rel="stylesheet" href="../css/app-ui.css">
+  <style>
+    body {
+      background-color: var(--color-beige-light);
+      font-family: 'Cairo', sans-serif;
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .error-card {
+      background-color: var(--color-white);
+      border: 1px solid var(--color-beige-dark);
+      border-radius: 24px;
+      padding: 60px 40px;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      box-shadow: var(--luxury-shadow);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+    }
+    .error-code {
+      font-family: 'Outfit', sans-serif;
+      font-size: 5rem;
+      font-weight: 800;
+      background: var(--gold-foil-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="error-card">
+    <h1 class="error-code">404</h1>
+    
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <h2 style="font-family: 'Reem Kufi', sans-serif; color: var(--color-green-dark); margin: 0; font-size: 1.4rem;">فقدنا هذا الغصن من شجرة الحياة!</h2>
+      <p style="font-size: 0.85rem; opacity: 0.7; line-height: 1.6; max-width: 380px; margin: 0 auto;">
+        عذراً، الصفحة التي تبحث عنها غير متوفرة أو تم نقلها لفرع آخر. دعنا نعد بك إلى بر الأمان.
+      </p>
+    </div>
+    
+    <button class="ui-kit-btn ui-kit-btn-gold" style="padding: 12px 30px;" onclick="window.location.href='../index.html';">العودة للرئيسية 🏠</button>
+  </div>
+</body>
+</html>

@@ -1,0 +1,384 @@
+/* ==========================================
+   "شجرة الحياة" (Tree of Life) Customizer Styling
+   ========================================== */
+
+/* 1. Customizer Grid Layout */
+.customizer-workspace {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 40px;
+  background: var(--color-white);
+  border-radius: 24px;
+  box-shadow: var(--luxury-shadow);
+  border: 1px solid var(--color-beige-dark);
+  overflow: hidden;
+  min-height: 780px;
+}
+
+/* 2. Control Panel (Sidebar) */
+.customizer-sidebar {
+  background: var(--color-beige-light);
+  border-left: 1px solid var(--color-beige-dark);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  overflow-y: auto;
+  max-height: 850px;
+}
+
+.customizer-section-title {
+  font-family: 'Reem Kufi', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-green-dark);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toggle-group {
+  display: flex;
+  background: rgba(43, 45, 47, 0.04);
+  padding: 4px;
+  border-radius: 12px;
+  width: 100%;
+}
+
+.toggle-btn {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  color: var(--color-charcoal);
+  opacity: 0.7;
+}
+
+.toggle-btn.active {
+  background: var(--color-white);
+  color: var(--color-green-dark);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  opacity: 1;
+}
+
+/* Category Grid Selector */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.category-select-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 12px;
+  background: var(--color-white);
+  border: 1px solid rgba(232, 223, 216, 0.7);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  font-family: 'Cairo', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-charcoal);
+}
+
+.category-select-btn:hover {
+  border-color: var(--color-green-soft);
+  background: var(--color-beige-light);
+}
+
+.category-select-btn.active {
+  background: rgba(92, 107, 87, 0.05);
+  border-color: var(--color-green-olive);
+  color: var(--color-green-dark);
+  box-shadow: 0 4px 12px rgba(92, 107, 87, 0.08);
+}
+
+.category-indicator {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  background: var(--color-beige-medium);
+}
+
+/* Input Fields styling */
+.customizer-input-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.customizer-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  opacity: 0.9;
+}
+
+.customizer-textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid var(--color-beige-dark);
+  background: var(--color-white);
+  font-family: 'Cairo', sans-serif;
+  font-size: 0.85rem;
+  resize: none;
+  transition: var(--transition-fast);
+}
+
+.customizer-textarea:focus {
+  border-color: var(--color-green-olive);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(92, 107, 87, 0.1);
+}
+
+.customizer-input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--color-beige-dark);
+  font-family: 'Cairo', sans-serif;
+  font-size: 0.85rem;
+  transition: var(--transition-fast);
+}
+
+.customizer-input:focus {
+  border-color: var(--color-green-olive);
+  outline: none;
+}
+
+/* 3. Board Stage (Preview Container) */
+.board-stage-wrapper {
+  background: #EAE5DC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Elegant Wood Frame styling */
+.wood-frame {
+  background: #D8C3A5; /* Natural wood color */
+  border-radius: 16px;
+  padding: 24px; /* Frame border thickness */
+  box-shadow: 
+    0 15px 35px rgba(0,0,0,0.15),
+    0 5px 15px rgba(0,0,0,0.1),
+    inset 0 0 20px rgba(0,0,0,0.1);
+  transition: var(--transition-smooth);
+  position: relative;
+}
+
+.wood-frame::before {
+  /* inner shadow to frame card */
+  content: "";
+  position: absolute;
+  top: 24px; left: 24px; right: 24px; bottom: 24px;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Board dimensions dynamically set */
+.keepsake-board {
+  width: 100%;
+  background: var(--color-beige-light);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.keepsake-board.size-a2 {
+  width: 480px;
+  height: 680px;
+}
+
+.keepsake-board.size-a3 {
+  width: 400px;
+  height: 566px;
+}
+
+/* SVG tree overlay */
+.tree-vector-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.tree-vector-overlay svg {
+  width: 100%;
+  height: 100%;
+}
+
+.board-branding {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  right: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 5;
+}
+
+.board-main-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.board-main-logo .title {
+  font-family: 'Reem Kufi', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-green-olive);
+  line-height: 1;
+}
+
+.board-main-logo .subtitle {
+  font-size: 0.55rem;
+  letter-spacing: 0.5px;
+  opacity: 0.8;
+  margin-top: 2px;
+}
+
+.board-co-logo-wrapper {
+  height: 35px;
+}
+
+.board-co-logo-wrapper img {
+  height: 100%;
+  width: auto;
+}
+
+/* 4. Draggable Leaves on Canvas */
+.interactive-leaves-container {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 6;
+}
+
+/* Stylized leaf nodes */
+.leaf-node {
+  position: absolute;
+  cursor: grab;
+  user-select: none;
+  transition: transform 0.15s ease-out;
+}
+
+.leaf-node:active {
+  cursor: grabbing;
+}
+
+.leaf-svg-wrapper {
+  width: 70px;
+  height: 42px;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.06));
+  position: relative;
+  transition: var(--transition-fast);
+}
+
+.leaf-node:hover .leaf-svg-wrapper {
+  transform: scale(1.1);
+  filter: drop-shadow(0 5px 12px rgba(92,107,87,0.18));
+}
+
+.leaf-svg-content {
+  width: 100%;
+  height: 100%;
+}
+
+.leaf-text-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px;
+  text-align: center;
+  font-size: 0.45rem;
+  font-weight: 600;
+  color: var(--color-charcoal);
+  line-height: 1.2;
+}
+
+/* Category Colors Mapping */
+.leaf-color-love { fill: #FFF2F6; stroke: var(--color-khairukum-pink); }
+.leaf-color-growth { fill: #F4F8F3; stroke: var(--color-green-olive); }
+.leaf-color-gratitude { fill: #FAF7EE; stroke: #D4AF37; }
+.leaf-color-family { fill: #FAF5F0; stroke: #C59F4B; }
+.leaf-color-travel { fill: #F0F4F8; stroke: #5C7F9E; }
+.leaf-color-home { fill: #FAF1EE; stroke: #C27D60; }
+.leaf-color-goals { fill: #EBF2F0; stroke: #4F7E70; }
+.leaf-color-dreams { fill: #F7EEFA; stroke: #9960B8; }
+.leaf-color-financial { fill: #EEFAF3; stroke: #43A047; }
+.leaf-color-memories { fill: #FAF7EE; stroke: #A1823B; }
+
+/* Control buttons inside Sidebar */
+.action-btn-block {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.action-btn-gold {
+  background: var(--gold-foil-gradient);
+  color: #3f310f;
+  box-shadow: 0 4px 15px rgba(212,175,55,0.2);
+}
+
+.action-btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212,175,55,0.35);
+}
+
+.action-btn-outline {
+  background: var(--color-white);
+  border: 1px solid var(--color-beige-dark);
+  color: var(--color-charcoal);
+}
+
+.action-btn-outline:hover {
+  background: var(--color-beige-medium);
+  border-color: var(--color-green-olive);
+}
+
+.action-btn-pink {
+  background: var(--color-khairukum-pink);
+  color: var(--color-white);
+}
+
+.action-btn-pink:hover {
+  background: #c21350;
+}

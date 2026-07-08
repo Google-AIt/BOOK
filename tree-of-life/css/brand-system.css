@@ -1,0 +1,262 @@
+/* ==========================================
+   "شجرة الحياة" (Tree of Life) Brand System
+   ========================================== */
+
+/* 1. Imports & Typography Rules */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800;900&family=Reem+Kufi:wght@400;500;600;700;800;900&family=Amiri:ital,wght@0,400;0,700;1,400&family=Outfit:wght@200;300;400;500;600;700&display=swap');
+
+:root {
+  /* Premium Scandinavian Palette */
+  --color-beige-light: #FBF9F6;
+  --color-beige-medium: #F5EFEB;
+  --color-beige-dark: #E8DFD8;
+  
+  --color-green-soft: #A2B29F;
+  --color-green-olive: #5C6B57;
+  --color-green-dark: #3F4A3B;
+  
+  --color-charcoal: #2B2D2F;
+  --color-white: #FFFFFF;
+  
+  /* Gold Foil Gradients & Shadows */
+  --gold-primary: #D4AF37;
+  --gold-foil-gradient: linear-gradient(135deg, #C59F4B 0%, #FDF1A9 30%, #D4AF37 70%, #9A7B1C 100%);
+  --gold-foil-gradient-soft: linear-gradient(135deg, #DFBA52 0%, #FFF5BD 40%, #E5C04A 70%, #B89932 100%);
+  
+  /* Khairukum Brand Colors (For co-branding touchpoints) */
+  --color-khairukum-pink: #E21A62;
+  --color-khairukum-pink-soft: rgba(226, 26, 98, 0.08);
+  
+  /* Textures and Shadows */
+  --paper-shadow: 0 10px 30px rgba(43, 45, 47, 0.06);
+  --luxury-shadow: 0 20px 50px rgba(63, 74, 59, 0.12);
+  --gold-glow: 0 0 15px rgba(212, 175, 55, 0.3);
+  
+  /* Transitions */
+  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.2s ease;
+}
+
+[data-theme="dark"] {
+  /* Dark Mode Base Styles */
+  --color-beige-light: #121411;
+  --color-beige-medium: #1A1D18;
+  --color-beige-dark: #2A2E28;
+  
+  --color-green-soft: #5C6B57;
+  --color-green-olive: #8A9C85;
+  --color-green-dark: #E6EDE3;
+  
+  --color-charcoal: #F5EFEB;
+  --color-white: #1E221D;
+  
+  /* Gold Foil Gradients & Shadows in Dark Mode */
+  --gold-primary: #E5C04A;
+  --gold-foil-gradient: linear-gradient(135deg, #DFBA52 0%, #FFF5BD 40%, #E5C04A 70%, #B89932 100%);
+  --gold-foil-gradient-soft: linear-gradient(135deg, #DFBA52 0%, #FFF5BD 40%, #E5C04A 70%, #B89932 100%);
+  
+  /* Brand Pink in Dark Mode */
+  --color-khairukum-pink: #FF4F8C;
+  --color-khairukum-pink-soft: rgba(255, 79, 140, 0.15);
+  
+  /* Textures and Shadows in Dark Mode */
+  --paper-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  --luxury-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  --gold-glow: 0 0 15px rgba(229, 192, 74, 0.4);
+}
+
+/* 2. Brand Patterns & Textures */
+.brand-pattern-bg {
+  /* Elegant leaf pattern overlay */
+  background-color: var(--color-beige-light);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%235c6b57' fill-opacity='0.03'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm0 2c-4.97 0-9-4.03-9-9s4.03-9 9-9 9 4.03 9 9-4.03 9-9 9zm20-2c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm0 2c-4.97 0-9-4.03-9-9s4.03-9 9-9 9 4.03 9 9-4.03 9-9 9zm-20 30c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm0 2c-4.97 0-9-4.03-9-9s4.03-9 9-9 9 4.03 9 9-4.03 9-9 9zm20-2c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm0 2c-4.97 0-9-4.03-9-9s4.03-9 9-9 9 4.03 9 9-4.03 9-9 9z'/%3E%3Cpath d='M42 20c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm0 2c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm0 20c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm0 2c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.paper-texture {
+  position: relative;
+}
+
+.paper-texture::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* 3. Luxury Stickers & Seals */
+.luxury-seal {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: var(--color-white);
+  border: 1px solid var(--color-beige-dark);
+  box-shadow: var(--paper-shadow);
+  position: relative;
+  text-align: center;
+  padding: 10px;
+  user-select: none;
+}
+
+.luxury-seal::before {
+  content: "";
+  position: absolute;
+  top: 4px; left: 4px; right: 4px; bottom: 4px;
+  border-radius: 50%;
+  border: 1px dashed var(--gold-primary);
+  pointer-events: none;
+}
+
+.luxury-seal-gold {
+  background: var(--gold-foil-gradient);
+  border: none;
+  box-shadow: var(--gold-glow);
+  color: #3f310f;
+}
+
+.luxury-seal-gold::before {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.luxury-seal .seal-title {
+  font-family: 'Reem Kufi', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+.luxury-seal .seal-subtitle {
+  font-family: 'Tajawal', sans-serif;
+  font-size: 0.55rem;
+  opacity: 0.8;
+  margin-top: 2px;
+}
+
+/* 4. Luxury Ribbon Design */
+.luxury-ribbon-container {
+  position: relative;
+  display: inline-block;
+}
+
+.luxury-ribbon {
+  background: var(--color-green-olive);
+  color: var(--color-white);
+  font-family: 'Tajawal', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 8px 24px;
+  position: relative;
+  border-left: 2px solid var(--gold-primary);
+  border-right: 2px solid var(--gold-primary);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  display: inline-block;
+}
+
+.luxury-ribbon::before,
+.luxury-ribbon::after {
+  content: "";
+  position: absolute;
+  border-style: solid;
+}
+
+/* Ribbon tails */
+.luxury-ribbon::before {
+  bottom: -6px;
+  left: 5px;
+  border-width: 6px 6px 0 0;
+  border-color: var(--color-green-dark) transparent transparent transparent;
+}
+.luxury-ribbon::after {
+  bottom: -6px;
+  right: 5px;
+  border-width: 6px 0 0 6px;
+  border-color: var(--color-green-dark) transparent transparent transparent;
+}
+
+/* 5. Typography Utility Classes */
+.font-headings-ar {
+  font-family: 'Reem Kufi', 'Amiri', serif;
+}
+
+.font-body-ar {
+  font-family: 'Cairo', 'Tajawal', sans-serif;
+}
+
+.font-premium-en {
+  font-family: 'Outfit', sans-serif;
+}
+
+.gold-text {
+  background: var(--gold-foil-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* 6. Gift & Thank You Card Base Styling */
+.gift-card-base {
+  width: 350px;
+  height: 220px;
+  background: var(--color-beige-light);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--luxury-shadow);
+  border: 1px solid var(--color-beige-dark);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.gift-card-base::after {
+  content: "";
+  position: absolute;
+  top: 10px; left: 10px; right: 10px; bottom: 10px;
+  border: 1px solid var(--gold-primary);
+  border-radius: 8px;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.gift-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gift-card-title {
+  font-family: 'Reem Kufi', sans-serif;
+  font-size: 1.1rem;
+  color: var(--color-green-olive);
+  font-weight: 600;
+}
+
+.gift-card-logo {
+  height: 25px;
+  opacity: 0.8;
+}
+
+.gift-card-content {
+  font-family: 'Cairo', sans-serif;
+  font-size: 0.8rem;
+  color: var(--color-charcoal);
+  line-height: 1.6;
+}
+
+.gift-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 0.7rem;
+  color: var(--color-green-olive);
+  font-weight: 500;
+}

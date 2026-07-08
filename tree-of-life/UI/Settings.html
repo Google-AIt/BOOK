@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>إعدادات العائلة – شجرة الحياة</title>
+  <link rel="stylesheet" href="../css/brand-system.css">
+  <link rel="stylesheet" href="../css/app-ui.css">
+  <style>
+    body {
+      background-color: var(--color-beige-light);
+      font-family: 'Cairo', sans-serif;
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+    }
+    .settings-wrap {
+      max-width: 750px;
+      width: 100%;
+      background-color: var(--color-white);
+      border: 1px solid var(--color-beige-dark);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: var(--luxury-shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    .setting-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--color-beige-medium);
+    }
+  </style>
+</head>
+<body>
+  <div class="settings-wrap">
+    <div style="border-bottom: 2px solid var(--color-beige-medium); padding-bottom: 15px;">
+      <h1 style="font-family: 'Reem Kufi', sans-serif; color: var(--color-green-dark); margin: 0; font-size: 1.5rem;">إعدادات شجرة العائلة ⚙️</h1>
+      <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 5px;">تخصيص مستويات الأمان، السمات، والتنبيهات للوحة المنزل</p>
+    </div>
+    
+    <div>
+      <h2 style="font-family: 'Reem Kufi', sans-serif; font-size: 1.1rem; color: var(--color-green-olive); margin-bottom: 10px;">🔒 الخصوصية والأمان</h2>
+      
+      <!-- Private Mode Toggle -->
+      <div class="setting-row">
+        <div>
+          <h3 style="font-size: 0.85rem; font-weight: 700; margin: 0;">الوضع الخاص المقفل (Private Mode)</h3>
+          <p style="font-size: 0.7rem; opacity: 0.7; margin-top: 3px;">يتطلب إدخال رقم سري (PIN) مكون من 4 أرقام لفتح تفاصيل الأوراق واللوح.</p>
+        </div>
+        <label class="ui-kit-checkbox">
+          <input type="checkbox" checked>
+          <span>تفعيل القفل تلقائياً</span>
+        </label>
+      </div>
+      
+      <!-- PIN Change -->
+      <div class="setting-row">
+        <div>
+          <h3 style="font-size: 0.85rem; font-weight: 700; margin: 0;">تغيير الرقم السري العائلي</h3>
+          <p style="font-size: 0.7rem; opacity: 0.7; margin-top: 3px;">الرقم السري الحالي هو رمز حماية الوصول للوحة المشتركة.</p>
+        </div>
+        <input type="password" class="ui-kit-input" style="width: 120px; text-align: center; letter-spacing: 5px;" value="1234">
+      </div>
+    </div>
+    
+    <div>
+      <h2 style="font-family: 'Reem Kufi', sans-serif; font-size: 1.1rem; color: var(--color-green-olive); margin-bottom: 10px;">🎨 السمة والواجهة</h2>
+      
+      <div class="setting-row">
+        <div>
+          <h3 style="font-size: 0.85rem; font-weight: 700; margin: 0;">الوضع المظلم الفاخر (Forest Dark Mode)</h3>
+          <p style="font-size: 0.7rem; opacity: 0.7; margin-top: 3px;">تحويل الألوان إلى درجات الأخضر الزيتي الفاخر والفحم لراحة العين ليلاً.</p>
+        </div>
+        <label class="ui-kit-checkbox">
+          <input type="checkbox">
+          <span>الوضع الداكن</span>
+        </label>
+      </div>
+    </div>
+    
+    <div>
+      <h2 style="font-family: 'Reem Kufi', sans-serif; font-size: 1.1rem; color: var(--color-green-olive); margin-bottom: 10px;">🔔 الإشعارات الأسرية</h2>
+      
+      <div class="setting-row">
+        <div>
+          <h3 style="font-size: 0.85rem; font-weight: 700; margin: 0;">تنبيهات المناسبات والعهود السنوية</h3>
+          <p style="font-size: 0.7rem; opacity: 0.7; margin-top: 3px;">إرسال رسائل بريد وتنبيهات هاتفية في ذكرى وعودكم وأهدافكم التي شارفت على الانتهاء.</p>
+        </div>
+        <label class="ui-kit-checkbox">
+          <input type="checkbox" checked>
+          <span>تنبيهات النشاط</span>
+        </label>
+      </div>
+    </div>
+    
+    <div style="display: flex; justify-content: flex-end; gap: 15px; margin-top: 10px;">
+      <button class="ui-kit-btn ui-kit-btn-outline" onclick="window.location.href='../index.html#app';">العودة للوحة التحكم</button>
+      <button class="ui-kit-btn ui-kit-btn-secondary">حفظ التغييرات</button>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>الأزرار – نظام تصميم شجرة الحياة</title>
+  <link rel="stylesheet" href="../../css/brand-system.css">
+  <link rel="stylesheet" href="../../css/app-ui.css">
+  <style>
+    body { padding: 40px; background-color: var(--color-beige-light); font-family: 'Cairo', sans-serif; }
+    .btn-demo-grid { display: flex; flex-direction: column; gap: 20px; max-width: 600px; }
+    .btn-row { display: flex; gap: 15px; align-items: center; }
+  </style>
+</head>
+<body>
+  <h1>مكونات الأزرار (Button Components) 🔘</h1>
+  <p>الأزرار هي العناصر التفاعلية الأساسية للتحكم باللوحة والأوراق والتحميل.</p>
+  
+  <div class="btn-demo-grid">
+    <!-- Row 1: Brand Themes -->
+    <h3>1. سمات العلامة التجارية (Brand Themes)</h3>
+    <div class="btn-row">
+      <button class="ui-kit-btn ui-kit-btn-primary">زر خيركم الوردي</button>
+      <button class="ui-kit-btn ui-kit-btn-secondary">زر الشجرة الزيتي</button>
+      <button class="ui-kit-btn ui-kit-btn-gold">زر الذهب الفاخر ✨</button>
+    </div>
+    
+    <!-- Row 2: Standard Styles -->
+    <h3>2. التنسيقات العيارية (Standard Styles)</h3>
+    <div class="btn-row">
+      <button class="ui-kit-btn ui-kit-btn-outline">زر الإطار الخارجي</button>
+      <button class="ui-kit-btn" style="background: transparent; border: none; color: var(--color-green-olive); font-weight: 700; cursor: pointer;">زر نصي بسيط</button>
+    </div>
+  </div>
+</body>
+</html>

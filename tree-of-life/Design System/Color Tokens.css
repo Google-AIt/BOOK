@@ -1,0 +1,62 @@
+/* ==========================================
+   Design System Color Tokens - 🌳 Life Tree
+   ========================================== */
+
+:root {
+  /* Light Mode (Base: Warm Cream & Beige) */
+  --color-beige-light: #FBF9F6;
+  --color-beige-medium: #F5EFEB;
+  --color-beige-dark: #E8DFD8;
+  
+  --color-green-soft: #A2B29F;
+  --color-green-olive: #5C6B57;
+  --color-green-dark: #3F4A3B;
+  
+  --color-charcoal: #2B2D2F;
+  --color-white: #FFFFFF;
+  
+  /* Gold Foil Gradients & Shadows */
+  --gold-primary: #D4AF37;
+  --gold-foil-gradient: linear-gradient(135deg, #C59F4B 0%, #FDF1A9 30%, #D4AF37 70%, #9A7B1C 100%);
+  --gold-foil-gradient-soft: linear-gradient(135deg, #DFBA52 0%, #FFF5BD 40%, #E5C04A 70%, #B89932 100%);
+  
+  /* Brand Pink */
+  --color-khairukum-pink: #E21A62;
+  --color-khairukum-pink-soft: rgba(226, 26, 98, 0.08);
+  
+  /* Shadows & Elevation */
+  --paper-shadow: 0 10px 30px rgba(43, 45, 47, 0.06);
+  --luxury-shadow: 0 20px 50px rgba(63, 74, 59, 0.12);
+  --gold-glow: 0 0 15px rgba(212, 175, 55, 0.3);
+  
+  /* Transition Constants */
+  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.2s ease;
+}
+
+[data-theme="dark"] {
+  /* Dark Mode (Base: Deep Charcoal & Forest Black) */
+  --color-beige-light: #121411;
+  --color-beige-medium: #1A1D18;
+  --color-beige-dark: #2A2E28;
+  
+  --color-green-soft: #5C6B57;
+  --color-green-olive: #8A9C85;
+  --color-green-dark: #E6EDE3;
+  
+  --color-charcoal: #F5EFEB;
+  --color-white: #1E221D;
+  
+  /* Gold Foil Gradient in Dark Mode */
+  --gold-primary: #E5C04A;
+  --gold-foil-gradient: linear-gradient(135deg, #DFBA52 0%, #FFF5BD 40%, #E5C04A 70%, #B89932 100%);
+  
+  /* Brand Pink Highlight in Dark Mode */
+  --color-khairukum-pink: #FF4F8C;
+  --color-khairukum-pink-soft: rgba(255, 79, 140, 0.15);
+  
+  /* Shadows & Elevation in Dark Mode */
+  --paper-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  --luxury-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  --gold-glow: 0 0 15px rgba(229, 192, 74, 0.4);
+}

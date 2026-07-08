@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>خيركم - التقييم الأسري الرقمي التفاعلي</title>
+  <meta name="description" content="منصة تفاعلية بأبعاد تربوية وأسرية مخصصة للزوجة لبناء بيت السعادة وتقييم المشاركة الزوجية.">
+  
+  <!-- الهوية البصرية والتنسيقات -->
+  <link rel="stylesheet" href="app.css">
+  
+  <!-- مكتبات خارجية مفيدة للرسوم والاحتفالات -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+  <!-- شريط التنقل والتحكم العلوي -->
+  <header>
+    <div class="logo-container">
+      <img src="logo.png" alt="شعار خيركم" class="logo-img" id="header-logo">
+    </div>
+    
+    <div class="header-actions">
+      <!-- شريط إحصائيات المستخدم (يظهر بعد تسجيل الاسم) -->
+      <div class="user-stats-bar" id="user-stats" style="display: none;">
+        <div class="stat-item xp" title="نقاط الخبرة">
+          <span>⚡</span>
+          <span id="stat-xp-val">0</span>
+        </div>
+        <div class="stat-item star" title="النجوم الذهبية">
+          <span>⭐</span>
+          <span id="stat-stars-val">0</span>
+        </div>
+        <div class="stat-item heart" title="القلوب الزوجية">
+          <span>❤️</span>
+          <span id="stat-hearts-val">0</span>
+        </div>
+      </div>
+      
+      <!-- الأزرار التفاعلية -->
+      <button class="action-btn" id="sound-toggle" title="كتم/تشغيل الصوت">🔊</button>
+      <button class="action-btn" id="theme-toggle" title="تغيير المظهر">🌙</button>
+      <button class="action-btn" id="settings-btn" title="الإعدادات ومفتاح API">⚙️</button>
+    </div>
+  </header>
+
+  <!-- الحاوية الأساسية للشاشات -->
+  <main>
+    
+    <!-- 1. شاشة الترحيب وتسجيل الدخول -->
+    <section class="app-screen active" id="welcome-screen">
+      <div class="welcome-card">
+        <img src="logo.png" alt="خيركم" class="welcome-logo">
+        <h1>رحلة خيركم الزوجية</h1>
+        <p>مرحباً بكِ في رحلة تفاعلية فريدة وممتعة لتقييم وتطوير مشاركة زوجكِ في بناء الأسرة عبر 5 أبعاد رئيسية. خوضي هذه التجربة كشريكة داعمة وابني بيت السعادة خطوة بخطوة!</p>
+        
+        <!-- اختيار الأفاتار الفاخر -->
+        <div class="avatar-selector">
+          <label>اختاري شخصيتكِ الافتراضية:</label>
+          <div class="avatar-grid">
+            <div class="avatar-option selected" data-avatar="🌸">🌸</div>
+            <div class="avatar-option" data-avatar="👑">👑</div>
+            <div class="avatar-option" data-avatar="👩‍🍳">👩‍🍳</div>
+            <div class="avatar-option" data-avatar="🎨">🎨</div>
+            <div class="avatar-option" data-avatar="🦉">🦉</div>
+            <div class="avatar-option" data-avatar="🌿">🌿</div>
+          </div>
+        </div>
+
+        <!-- إدخال الاسم المستعار -->
+        <div class="form-group">
+          <label for="username-input">اسمكِ المستعار (لإصدار الشهادة):</label>
+          <input type="text" id="username-input" class="form-input" placeholder="مثال: أم عبد الرحمن" value="الزوجة الداعمة">
+        </div>
+
+        <button class="btn-primary" id="start-journey-btn">
+          ابدئي الرحلة الآن 🏡
+        </button>
+
+        <div style="margin-top: 10px; font-size: 12px; color: var(--text-muted);">
+          أو سجلي الدخول السريع عبر:
+        </div>
+        
+        <div class="auth-providers">
+          <button class="btn-oauth" id="auth-google"><span>🌐</span> Google</button>
+          <button class="btn-oauth" id="auth-apple"><span>🍎</span> Apple</button>
+          <button class="btn-oauth" id="auth-otp"><span>🔑</span> رمز OTP</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. شاشة لوحة التحكم (Dashboard) -->
+    <section class="app-screen" id="dashboard-screen">
+      <div class="dashboard-grid">
+        
+        <!-- الجانب الأيمن: التفاعل ومنزل السعادة -->
+        <div class="dashboard-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div class="user-profile-header">
+            <div class="user-avatar-large" id="user-avatar-disp">🌸</div>
+            <div class="user-details">
+              <h2 id="username-disp">الزوجة الداعمة</h2>
+              <span class="user-level-tag" id="user-level-disp">المستوى 1: بانية أساسات السعادة</span>
+            </div>
+          </div>
+          
+          <!-- لوحة تمثيل منزل السعادة SVG -->
+          <div class="house-container">
+            <div class="house-svg-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" width="100%" height="100%">
+                <!-- السماء والخلفية الطبيعية -->
+                <rect x="0" y="0" width="320" height="240" fill="none"/>
+                
+                <!-- 1. الأساسات والجدران (المحور الأول: المشاركة المنزلية) -->
+                <g id="part-walls" class="house-part locked">
+                  <!-- الأساس الحجري السفلي -->
+                  <rect x="60" y="185" width="200" height="15" fill="#78909c" rx="4" ry="4"/>
+                  <!-- الجدران الرئيسية -->
+                  <rect x="75" y="115" width="170" height="70" fill="#fff9c4" stroke="#fbc02d" stroke-width="1.5"/>
+                  <!-- نافذة يسار الجدار -->
+                  <rect x="95" y="135" width="25" height="25" fill="#b3e5fc" stroke="#fbc02d" stroke-width="1"/>
+                  <line x1="107.5" y1="135" x2="107.5" y2="160" stroke="#fbc02d"/>
+                  <line x1="95" y1="147.5" x2="120" y2="147.5" stroke="#fbc02d"/>
+                </g>
+
+                <!-- 2. الحديقة ومنطقة الألعاب (المحور الثاني: تربية الأبناء) -->
+                <g id="part-garden" class="house-part locked">
+                  <!-- الأرض العشبية الخضراء -->
+                  <path d="M 0,200 Q 80,185 160,200 T 320,200 L 320,240 L 0,240 Z" fill="#81c784"/>
+                  <!-- شجرة صغيرة جميلة -->
+                  <rect x="35" y="160" width="8" height="40" fill="#8d6e63"/>
+                  <circle cx="39" cy="145" r="20" fill="#4caf50"/>
+                  <!-- زهور برية ملونة -->
+                  <circle cx="280" cy="195" r="4" fill="#e91e63"/>
+                  <circle cx="272" cy="202" r="3" fill="#ffeb3b"/>
+                  <circle cx="290" cy="200" r="3.5" fill="#2196f3"/>
+                  <!-- أرجوحة صغيرة للأطفال -->
+                  <line x1="20" y1="160" x2="20" y2="205" stroke="#795548" stroke-width="2"/>
+                  <line x1="50" y1="160" x2="50" y2="205" stroke="#795548" stroke-width="2"/>
+                  <rect x="15" y="195" width="40" height="4" fill="#a1887f"/>
+                </g>
+
+                <!-- 3. المرآب والبوابة المالية (المحور الثالث: النفقات الأسرية) -->
+                <g id="part-garage" class="house-part locked">
+                  <!-- مبنى المرآب / ملحق المنزل -->
+                  <rect x="235" y="135" width="60" height="50" fill="#ffe082" stroke="#ffb300" stroke-width="1.5"/>
+                  <!-- بوابة المرآب المنزلقة المخططة (رمز الكفاية المالية) -->
+                  <rect x="242" y="145" width="46" height="40" fill="#cfd8dc" stroke="#90a4ae"/>
+                  <line x1="242" y1="153" x2="288" y2="153" stroke="#90a4ae"/>
+                  <line x1="242" y1="161" x2="288" y2="161" stroke="#90a4ae"/>
+                  <line x1="242" y1="169" x2="288" y2="169" stroke="#90a4ae"/>
+                  <line x1="242" y1="177" x2="288" y2="177" stroke="#90a4ae"/>
+                </g>
+
+                <!-- 4. الباب الرئيسي والنوافذ (المحور الرابع: التوافق الاجتماعي) -->
+                <g id="part-door" class="house-part locked">
+                  <!-- الباب الخشبي الرئيسي -->
+                  <rect x="145" y="135" width="30" height="50" fill="#a1887f" stroke="#5d4037" stroke-width="1.5"/>
+                  <!-- مقبض الباب الذهبي -->
+                  <circle cx="152" cy="160" r="2.5" fill="#ffd54f"/>
+                  <!-- نافذة يمين الجدار -->
+                  <rect x="200" y="135" width="25" height="25" fill="#b3e5fc" stroke="#fbc02d" stroke-width="1"/>
+                  <line x1="212.5" y1="135" x2="212.5" y2="160" stroke="#fbc02d"/>
+                  <line x1="200" y1="147.5" x2="225" y2="147.5" stroke="#fbc02d"/>
+                  <!-- مصباح إنارة خارجي بجانب الباب -->
+                  <line x1="135" y1="140" x2="142" y2="140" stroke="#ffd54f" stroke-width="1.5"/>
+                  <circle cx="135" cy="140" r="4" fill="#fff176"/>
+                </g>
+
+                <!-- 5. السقف والمدخنة والقلوب العائمة (المحور الخامس: التوافق العاطفي) -->
+                <g id="part-roof" class="house-part locked">
+                  <!-- سقف المنزل القرميدي الكبير -->
+                  <polygon points="50,115 160,50 270,115" fill="#e57373" stroke="#d32f2f" stroke-width="1.5"/>
+                  <!-- مدخنة السقف -->
+                  <rect x="215" y="65" width="18" height="25" fill="#b0bec5" stroke="#78909c"/>
+                  <rect x="211" y="61" width="26" height="5" fill="#78909c"/>
+                  <!-- نافذة السقف المثلثة (العليّة) -->
+                  <polygon points="160,70 145,90 175,90" fill="#b3e5fc" stroke="#d32f2f" stroke-width="1"/>
+                  
+                  <!-- القلوب العائمة الوردية المتحركة (تظهر بعد التنشيط) -->
+                  <g class="floating-heart" style="animation-delay: 0s;">
+                    <path d="M 120,40 A 5,5 0 0,0 110,40 A 5,5 0 0,0 100,40 Q 100,50 110,60 Q 120,50 120,40 Z" fill="#ff4081"/>
+                  </g>
+                  <g class="floating-heart" style="animation-delay: 1.5s;">
+                    <path d="M 225,35 A 4,4 0 0,0 217,35 A 4,4 0 0,0 209,35 Q 209,43 217,51 Q 225,43 225,35 Z" fill="#ff4081"/>
+                  </g>
+                  <g class="floating-heart" style="animation-delay: 3s;">
+                    <path d="M 160,20 A 6,6 0 0,0 148,20 A 6,6 0 0,0 136,20 Q 136,32 148,44 Q 160,32 160,20 Z" fill="#e91e63"/>
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </div>
+          
+          <button class="btn-primary" id="go-assess-btn" style="width: 100%;">
+            ابدئي أو تابعي التقييم 🚀
+          </button>
+        </div>
+        
+        <!-- الجانب الأيسر: الإنجازات والتحديات -->
+        <div class="dashboard-card" style="display: flex; flex-direction: column; gap: 16px;">
+          <div class="dashboard-card-title">
+            <span>🏆</span> شارات وأوسمة خيركم
+          </div>
+          
+          <!-- شبكة عرض الأوسمة المكتسبة -->
+          <div class="badges-grid" id="badges-shelf">
+            <!-- سيتم تعبئتها ديناميكياً من الجافا سكريبت -->
+          </div>
+          
+          <div class="dashboard-card-title" style="margin-top: 10px;">
+            <span>🎯</span> التحدي الأسري اليومي
+          </div>
+          
+          <!-- صندوق التحدي اليومي العشوائي -->
+          <div class="challenge-box" id="daily-challenge-card">
+            <div class="challenge-checkbox" id="challenge-check-btn">✓</div>
+            <div class="challenge-text" id="challenge-text-val">حمل التطبيق وابدأ التقييم!</div>
+          </div>
+          
+          <!-- سجل التقييمات السابقة ومقارنة السعادة الأسرية -->
+          <div class="dashboard-card-title" style="margin-top: 10px;">
+            <span>📈</span> تقاريرك السابقة
+          </div>
+          <div id="history-list" style="font-size: 13px; color: var(--text-muted); display: flex; flex-direction: column; gap: 8px;">
+            لا توجد تقييمات سابقة محفوظة بعد. أكملي تقييمك الأول لتري إحصائيات نمو بيتكِ هنا!
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. شاشة التقييم (Assessment Screen) -->
+    <section class="app-screen" id="assessment-screen">
+      <div class="assessment-container">
+        
+        <!-- شريط التقدم والمعلومات الفوقية -->
+        <div class="assessment-header">
+          <div class="dimension-badge" id="current-dim-badge">
+            <span id="current-dim-icon">🏠</span>
+            <span id="current-dim-title">المشاركة المنزلية</span>
+          </div>
+          <div class="question-counter" id="question-counter-txt">
+            السؤال 1 من 9
+          </div>
+        </div>
+        
+        <div class="progress-container">
+          <div class="progress-bar-fill" id="assessment-progress-bar"></div>
+        </div>
+        
+        <!-- بطاقة السؤال الكبيرة -->
+        <div class="question-card" id="q-card">
+          <div class="question-text" id="question-text-val">
+            يساعدني زوجي في إعداد وطهي الطعام.
+          </div>
+        </div>
+        
+        <!-- خيارات الإجابة الخمسة -->
+        <div class="options-list" id="options-container">
+          <button class="option-btn" data-score="5">
+            <span>دائمًا – في كل الأوقات</span>
+          </button>
+          <button class="option-btn" data-score="4">
+            <span>غالبًا – في أغلب الأوقات</span>
+          </button>
+          <button class="option-btn" data-score="3">
+            <span>أحيانًا – من حين لآخر</span>
+          </button>
+          <button class="option-btn" data-score="2">
+            <span>نادرًا – قليلًا جدًا</span>
+          </button>
+          <button class="option-btn" data-score="1">
+            <span>مطلقًا – لا يفعل ذلك إطلاقًا</span>
+          </button>
+        </div>
+        
+        <!-- تغذية راجعة فورية بعد السؤال (تظهر مؤقتاً وتختفي) -->
+        <div class="feedback-overlay" id="advice-feedback-overlay" style="display: none;">
+          <div class="advisor-speech">
+            <div class="advisor-avatar">🌿</div>
+            <div class="advisor-text" id="advice-feedback-txt">
+              المشاركة في إعداد الطعام تزيد من مشاعر التقدير وتخفف الضغوط اليومية.
+            </div>
+          </div>
+          <div class="points-popup-container">
+            <span style="color: var(--primary-pink);">⚡ +15 نقطة خبرة</span>
+            <span style="color: #ffb300;">⭐ +5 نجوم</span>
+            <span style="color: #e91e63;">❤️ +1 قلوب</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. شاشة الانتقال وعجلة المكافآت (Spin Wheel Screen) -->
+    <section class="app-screen" id="spin-screen">
+      <div class="welcome-card spin-container">
+        <h1 style="color: var(--primary-pink);" id="level-complete-title">🎉 المستوى الأول اكتمل!</h1>
+        <h2 id="built-part-announcement">تم بناء الجدران والأساسات بنجاح 🏡</h2>
+        
+        <p>لقد أتممتِ هذا المحور بنظام مذهل وحصلتِ على شارة جديدة. قبل الانتقال للمستوى التالي، أديري عجلة المكافآت لتربحي جائزتكِ التوجيهية اليوم!</p>
+        
+        <!-- هيكل عجلة الحظ -->
+        <div class="wheel-wrapper">
+          <div class="wheel-indicator"></div>
+          <div class="spin-wheel" id="wheel-element">
+            <!-- قطاعات العجلة الستة -->
+            <div class="wheel-segment" style="transform: rotate(0deg); background: #fce4ec;">
+              <div class="segment-content" style="transform: rotate(0deg);">
+                <span>📖</span>
+                <div>كتاب إلكتروني</div>
+              </div>
+            </div>
+            <div class="wheel-segment" style="transform: rotate(60deg); background: #fdfbf7;">
+              <div class="segment-content" style="transform: rotate(0deg);">
+                <span>🎁</span>
+                <div>كوبون خصم</div>
+              </div>
+            </div>
+            <div class="wheel-segment" style="transform: rotate(120deg); background: #f5eedf;">
+              <div class="segment-content" style="transform: rotate(0deg);">
+                <span>🎓</span>
+                <div>دورة مجانية</div>
+              </div>
+            </div>
+            <div class="wheel-segment" style="transform: rotate(180deg); background: #fce4ec;">
+              <div class="segment-content" style="transform: rotate(0deg);">
+                <span>⭐</span>
+                <div>+100 نقطة</div>
+              </div>
+            </div>
+            <div class="wheel-segment" style="transform: rotate(240deg); background: #fdfbf7;">
+              <div class="segment-content" style="transform: rotate(0deg);">
+                <span>🏆</span>
+                <div>وسام ذهبي</div>
+              </div>
+            </div>
+            <div class="wheel-segment" style="transform: rotate(300deg); background: #f5eedf;">
+              <div class="segment-content" style="transform: rotate(0deg);">
+                <span>💖</span>
+                <div>سعادة مضاعفة</div>
+              </div>
+            </div>
+            <div class="wheel-center" id="wheel-center-btn">اضغطي</div>
+          </div>
+        </div>
+        
+        <button class="btn-primary" id="spin-wheel-btn">أديري العجلة الآن 🎡</button>
+        
+        <!-- نصائح الإرشاد التوليدية (Coaching Paragraph) للمحور -->
+        <div class="feedback-overlay" id="section-coaching-box" style="display: none; width: 100%; text-align: right;">
+          <h3 style="color: var(--primary-pink); font-size: 16px; margin-bottom: 8px;">✨ إرشاد كوتشينج خيركم (تحليل الذكاء الاصطناعي):</h3>
+          <div class="advisor-text" id="section-coaching-txt" style="font-weight: 500;">
+            جاري توليد التوجيه الأسري الذكي لنتائج هذا المحور...
+          </div>
+          <button class="btn-primary" id="next-level-btn" style="margin-top: 14px; align-self: flex-end;">
+            الانتقال للمستوى التالي ➔
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. شاشة التقرير النهائي (Final Report Screen) -->
+    <section class="app-screen" id="report-screen">
+      <div class="dashboard-card" style="padding: 30px;">
+        <div class="report-header">
+          <img src="logo.png" alt="خيركم" style="height: 60px; margin-bottom: 8px;">
+          <h2>تقرير التقييم الشامل لـ "خيركم"</h2>
+          <p style="color: var(--text-muted);" id="report-date-txt">تاريخ التقييم: 8 يوليو 2026</p>
+        </div>
+        
+        <!-- دائرة النسبة الإجمالية الكلية -->
+        <div class="overall-score-gauge">
+          <svg class="radial-progress" viewBox="0 0 100 100">
+            <circle class="bg-circle" cx="50" cy="50" r="40"></circle>
+            <circle class="progress-circle" id="report-radial-fill" cx="50" cy="50" r="40" stroke-dasharray="251.2" stroke-dashoffset="251.2"></circle>
+          </svg>
+          <div class="gauge-center-text">
+            <div class="gauge-score" id="report-overall-val">0%</div>
+            <div class="gauge-label">مؤشر السعادة</div>
+          </div>
+        </div>
+        
+        <!-- الرسم البياني الراداري Radar Chart (Chart.js) -->
+        <div class="report-section">
+          <h3>📊 تحليل أبعاد بيت السعادة (مخطط التوافق)</h3>
+          <div class="radar-chart-container">
+            <canvas id="radarChartCanvas"></canvas>
+          </div>
+        </div>
+        
+        <!-- النص الإرشادي والتحليل الكامل المولّد بالذكاء الاصطناعي -->
+        <div class="report-section">
+          <h3>📝 تحليل الإرشاد الشامل والتقرير النفسي</h3>
+          <div class="advisor-text" id="ai-psychological-report-content" style="background: var(--bg-cream-dark); padding: 20px; border-radius: 16px; font-weight: 500; line-height: 1.8; text-align: justify; border-right: 4px solid var(--primary-pink);">
+            جاري تحضير وتحليل البيانات لتوليد تقرير الذكاء الاصطناعي الكامل...
+          </div>
+        </div>
+
+        <!-- أزرار الإجراءات والمشاركة والتحميل -->
+        <div class="report-section" style="margin-top: 24px;">
+          <div class="action-buttons-group">
+            <button class="btn-secondary" id="btn-show-certificate">
+              <span>📜</span>
+              عرض الشهادة
+            </button>
+            <button class="btn-secondary" id="btn-share-whatsapp">
+              <span>💬</span>
+              واتساب
+            </button>
+            <button class="btn-secondary" id="btn-email-report">
+              <span>📧</span>
+              إرسال إيميل
+            </button>
+            <button class="btn-secondary" id="btn-retake-assess">
+              <span>🔄</span>
+              تقييم جديد
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- نافذة عرض الشهادة التقديرية الفاخرة (Certificate Modal) -->
+  <div class="modal-overlay" id="cert-modal">
+    <div class="modal-content">
+      <button class="modal-close-btn" id="close-cert-btn">×</button>
+      <div class="modal-body" style="padding: 16px;">
+        
+        <!-- هيكل الشهادة الفاخر المذهب -->
+        <div class="certificate-frame" id="printable-certificate">
+          <div class="cert-header">
+            <img src="logo.png" alt="خيركم" class="cert-logo">
+            <div class="cert-title-arabesque">شهادة تقدير وتكريم</div>
+            <div class="cert-subtitle">مبادرة خيركم لبناء السعادة الأسرية</div>
+          </div>
+          
+          <div class="cert-body">
+            <p>تشهد إدارة منصة التقييم الأسري الرقمي التفاعلي بأن الشريكة الداعمة والبانية:</p>
+            <div class="cert-name" id="cert-user-name">الزوجة الداعمة</div>
+            <div class="cert-desc">
+              قد أتمت بنجاح وتفوق رحلة التقييم والتطوير الأسري الشاملة لزوجها، وبنت "بيت السعادة الذهبي" متجاوزة كافة المستويات باقتدار وسعي مشكور لقوله ﷺ: "خَيْرُكُمْ خَيْرُكُمْ لأَهْلِهِ".
+            </div>
+            
+            <div class="cert-score-badge">
+              بدرجة سعادة أسرية كلية بلغت: <span id="cert-score-val">87%</span>
+            </div>
+          </div>
+          
+          <div class="cert-footer">
+            <div class="cert-sig-box">
+              <div class="cert-signature">حكيم خيركم</div>
+              <div class="cert-line"></div>
+              <span>مستشار الأسرة العام</span>
+            </div>
+            
+            <!-- رمز الاستجابة السريعة للتحقق QR Code (رسم صوري للجماليات) -->
+            <div class="cert-qr">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+                <rect x="0" y="0" width="100" height="100" fill="white"/>
+                <rect x="10" y="10" width="25" height="25" fill="#3e2723"/>
+                <rect x="15" y="15" width="15" height="15" fill="white"/>
+                <rect x="18" y="18" width="9" height="9" fill="#3e2723"/>
+                <rect x="65" y="10" width="25" height="25" fill="#3e2723"/>
+                <rect x="70" y="15" width="15" height="15" fill="white"/>
+                <rect x="73" y="18" width="9" height="9" fill="#3e2723"/>
+                <rect x="10" y="65" width="25" height="25" fill="#3e2723"/>
+                <rect x="15" y="70" width="15" height="15" fill="white"/>
+                <rect x="18" y="73" width="9" height="9" fill="#3e2723"/>
+                <!-- نقاط عشوائية بالداخل -->
+                <rect x="45" y="15" width="8" height="8" fill="#3e2723"/>
+                <rect x="55" y="25" width="6" height="6" fill="#3e2723"/>
+                <rect x="40" y="45" width="10" height="10" fill="#3e2723"/>
+                <rect x="52" y="40" width="8" height="6" fill="#3e2723"/>
+                <rect x="45" y="65" width="12" height="12" fill="#3e2723"/>
+                <rect x="65" y="45" width="15" height="15" fill="#3e2723"/>
+                <rect x="70" y="70" width="8" height="8" fill="#3e2723"/>
+                <rect x="80" y="65" width="10" height="10" fill="#3e2723"/>
+              </svg>
+            </div>
+            
+            <div class="cert-date" id="cert-date-val">8 يوليو 2026</div>
+          </div>
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button class="btn-primary" id="btn-print-certificate">طباعة أو تحميل الشهادة PDF 🖨️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- نافذة إعدادات مفتاح API للـ Gemini (Settings Modal) -->
+  <div class="modal-overlay" id="settings-modal">
+    <div class="modal-content" style="max-width: 480px;">
+      <button class="modal-close-btn" id="close-settings-btn">×</button>
+      <div class="modal-body">
+        <h2 style="font-size: 20px; font-weight: 800; color: var(--primary-pink); margin-bottom: 16px;">⚙️ إعدادات منصة خيركم</h2>
+        
+        <div class="settings-box">
+          <div class="form-group">
+            <label for="gemini-key-input">مفتاح Google Gemini API Key:</label>
+            <input type="password" id="gemini-key-input" class="form-input" placeholder="أدخلي مفتاح AI Studio الخاص بكِ هنا">
+            <p style="font-size: 11px; color: var(--text-muted); line-height: 1.5; margin-top: 4px;">
+              * اختياري: إذا لم يتم إدخال مفتاح API، ستستخدم المنصة محرك التحليل والذكاء المحلي المدمج فوراً لمتابعة اللعب وتوليد النصائح بدون عوائق.
+            </p>
+          </div>
+          
+          <div class="form-group" style="margin-top: 10px;">
+            <label>حذف وإعادة ضبط البيانات:</label>
+            <button class="btn-oauth" id="btn-clear-data" style="background: #ffebee; color: #c62828; border-color: #ffcdd2;">
+              🗑️ مسح كافة التقييمات والبيانات المسجلة
+            </button>
+          </div>
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button class="btn-primary" id="save-settings-btn">حفظ الإعدادات وغلق</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- حاوية اللوحة اللامتناهية لاحتفالات الـ Confetti -->
+  <canvas class="confetti-canvas" id="global-confetti-canvas"></canvas>
+
+  <!-- كود تشغيل المنطقة التفاعلية -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>

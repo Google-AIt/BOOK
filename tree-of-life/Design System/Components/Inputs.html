@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>المدخلات – نظام تصميم شجرة الحياة</title>
+  <link rel="stylesheet" href="../../css/brand-system.css">
+  <link rel="stylesheet" href="../../css/app-ui.css">
+  <style>
+    body { padding: 40px; background-color: var(--color-beige-light); font-family: 'Cairo', sans-serif; }
+    .form-wrap { display: flex; flex-direction: column; gap: 20px; max-width: 400px; }
+  </style>
+</head>
+<body>
+  <h1>عناصر المدخلات (Input Components) ✍️</h1>
+  
+  <div class="form-wrap">
+    <!-- Input text -->
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <label style="font-size: 0.8rem; font-weight: 700;">اسم ورقة الذاكرة</label>
+      <input type="text" class="ui-kit-input" style="width: 100%;" placeholder="اكتب الاسم هنا...">
+    </div>
+    
+    <!-- Textarea -->
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <label style="font-size: 0.8rem; font-weight: 700;">محتوى الرسالة العاطفية</label>
+      <textarea class="customizer-textarea" rows="3" placeholder="اكتب رسالتك العاطفية هنا..."></textarea>
+    </div>
+    
+    <!-- Checkbox -->
+    <div>
+      <label class="ui-kit-checkbox">
+        <input type="checkbox" checked>
+        <span>مشاركة الورقة على لوحة الحائط العامة 🌳</span>
+      </label>
+    </div>
+  </div>
+</body>
+</html>

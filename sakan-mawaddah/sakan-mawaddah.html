@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>سكن ومودة – لعبة التفهم والانسجام الأسري | من منصة خيركم</title>
+  <meta name="description" content="العلامة التجارية والبطاقات التفاعلية للعبة التفهم والانسجام الأسري سكن ومودة - خيركم خيركم لأهله" />
+  <link rel="stylesheet" href="sakan-mawaddah.css" />
+</head>
+<body>
+
+  <!-- ===== TOP NAVIGATION NAVBAR ===== -->
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <div class="logo-container">
+        <img src="logo.png" alt="شعار خيركم" class="logo-img" onerror="this.style.display='none'">
+        <div class="game-title-wrap">
+          <span class="nav-brand-ar">سكن ومودة 💍</span>
+          <span class="nav-tagline">من منصة خيركم</span>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#hero" class="nav-link active-nav">الرئيسية</a>
+        <a href="#packaging" class="nav-link">الغلاف والتغليف</a>
+        <a href="#cards" class="nav-link">الـ 120 كرتاً</a>
+        <a href="#booklet" class="nav-link">كتيب التعليمات</a>
+        <a href="#scorebook" class="nav-link">دفتر النتائج</a>
+        <a href="#welcome" class="nav-link">بطاقة الترحيب</a>
+      </div>
+      <button class="nav-print-btn" onclick="printDeck()">🖨 طباعة الكروت</button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO BANNER ===== -->
+  <section class="hero-section" id="hero">
+    <div class="hero-bg-shapes">
+      <div class="hero-glow-1"></div>
+      <div class="hero-glow-2"></div>
+      <div class="hero-pattern"></div>
+    </div>
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="publisher-badge">
+          <img src="logo.png" alt="خيركم" style="height:35px; width:auto;" onerror="this.style.display='none'">
+          <span class="publisher-text">خيركم لأهله يقدم</span>
+        </div>
+        <h1 class="hero-title">💍 سكن ومودة</h1>
+        <h2 class="hero-subtitle">لعبة التفهم والانسجام الأسري الفاخرة</h2>
+        <p class="hero-tagline">
+          رحلة حوارية وتفاعلية راقية مستوحاة من القيم الأسرية الأصيلة لبناء جسور المودة، استعادة دفء العلاقات، وحساب رصيد الانسجام الزوجي عبر 120 كرت لعب مصمم بمهارة وعمق.
+        </p>
+        <div class="hero-cta-group">
+          <a href="#cards" class="btn-primary"><span>تصفح الكروت التفاعلية</span> 💚</a>
+          <a href="#packaging" class="btn-secondary">استعراض التغليف الفاخر</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="box-3d-scene">
+          <div class="box-3d">
+            <!-- Front Face -->
+            <div class="box-face box-front">
+              <div class="packaging-face-render" style="height:100%; border-width:1px;">
+                <div class="luxury-ornament orn-top-right"></div>
+                <div class="luxury-ornament orn-top-left"></div>
+                <div class="luxury-ornament orn-bottom-right"></div>
+                <div class="luxury-ornament orn-bottom-left"></div>
+                <div class="pkg-logo-wrap" style="margin-top:15px;">
+                  <img src="logo.png" alt="خيركم" class="pkg-brand-logo" style="max-height:80px;">
+                </div>
+                <div class="pkg-title-area" style="margin-top:15px;">
+                  <h1 class="pkg-main-title" style="font-size:32px;">سكن ومودة</h1>
+                  <div class="pkg-subtitle" style="font-size:13px;">لعبة التفهم والانسجام الأسري</div>
+                </div>
+                <div class="pkg-graphics" style="margin:20px 0;">
+                  <div class="rings-graphic" style="transform:scale(0.8);">
+                    <div class="ring-shape ring-1"><div class="ring-diamond"></div></div>
+                    <div class="ring-shape ring-2"></div>
+                  </div>
+                </div>
+                <div class="pkg-bottom-meta" style="margin-top:15px; padding-top:10px; font-size:10px;">
+                  <span>120 كرت لعب</span>
+                  <span>+18 متزوجون</span>
+                  <span>لعبة أسرية فاخرة</span>
+                </div>
+              </div>
+            </div>
+            <!-- Back Face -->
+            <div class="box-face box-back">
+              <div class="packaging-face-render" style="height:100%; border-width:1px; transform: scaleX(-1);">
+                <div class="luxury-ornament orn-top-right"></div>
+                <div class="luxury-ornament orn-top-left"></div>
+                <div class="luxury-ornament orn-bottom-right"></div>
+                <div class="luxury-ornament orn-bottom-left"></div>
+                <div class="pkg-title-area" style="margin-top:15px;">
+                  <h2 style="font-family:var(--font-serif); font-size:24px; color:var(--gold);">عن اللعبة</h2>
+                </div>
+                <p style="font-size:10px; color:var(--gray-400); text-align:center; padding:10px; line-height:1.6;">
+                  أوجدوا السكينة في تفاصيل حواراتكم مع 120 سؤالاً ونشاطاً تفاعلياً يعمق المحبة ويدرب على التسامح.
+                </p>
+                <div class="pkg-barcode-area" style="position:absolute; bottom:20px; left:20px; right:20px;">
+                  <div class="pkg-barcode"><div class="barcode-lines"></div><span class="barcode-num">6289876543210</span></div>
+                  <img src="logo.png" alt="خيركم" style="max-height:60px; width:auto;">
+                </div>
+              </div>
+            </div>
+            <!-- Sides -->
+            <div class="box-face box-left"></div>
+            <div class="box-face box-right"></div>
+            <div class="box-face box-top"></div>
+            <div class="box-face box-bottom"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 1. PREMIUM CARD BOX PACKAGING & 2/3. COVERS ===== -->
+  <section class="section" id="packaging">
+    <div class="section-header-wrap">
+      <span class="section-badge">التغليف الخارجي الفاخر</span>
+      <h2 class="section-title">علبة اللعبة والأغلفة الطباعية</h2>
+      <p class="section-desc">
+        تصميم علبة اللعبة والوجهين الأمامي والخلفي بدقة طباعة عالية متوافقة مع ألوان الهوية البصرية لـ "خيركم".
+      </p>
+    </div>
+
+    <div class="glass-panel packaging-design-grid">
+      <!-- Front Cover Mockup -->
+      <div>
+        <h3 style="font-family:var(--font-serif); font-size:24px; color:var(--gold); margin-bottom:20px; text-align:center;">الغلاف الأمامي</h3>
+        <div class="packaging-face-render">
+          <div class="luxury-ornament orn-top-right"></div>
+          <div class="luxury-ornament orn-top-left"></div>
+          <div class="luxury-ornament orn-bottom-right"></div>
+          <div class="luxury-ornament orn-bottom-left"></div>
+          
+          <div class="pkg-logo-wrap">
+            <img src="logo.png" alt="شعار خيركم" class="pkg-brand-logo" onerror="this.style.display='none'">
+          </div>
+
+          <div class="pkg-title-area">
+            <h1 class="pkg-main-title">سكن ومودة</h1>
+            <div class="pkg-subtitle">لعبة التفهم والانسجام الأسري</div>
+            <p class="pkg-tagline">"لتسكنوا إليها وجعل بينكم مودة ورحمة"</p>
+          </div>
+
+          <div class="pkg-graphics">
+            <div class="rings-graphic">
+              <div class="ring-shape ring-1">
+                <div class="ring-diamond"></div>
+              </div>
+              <div class="ring-shape ring-2"></div>
+            </div>
+          </div>
+
+          <div class="pkg-bottom-meta">
+            <span>👤 2 لاعبين (زوجان)</span>
+            <span>⏱ 50 دقيقة للجلسة</span>
+            <span>⭐ إصدار فاخر</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Back Cover Mockup -->
+      <div>
+        <h3 style="font-family:var(--font-serif); font-size:24px; color:var(--gold); margin-bottom:20px; text-align:center;">الغلاف الخلفي</h3>
+        <div class="packaging-face-render">
+          <div class="luxury-ornament orn-top-right"></div>
+          <div class="luxury-ornament orn-top-left"></div>
+          <div class="luxury-ornament orn-bottom-right"></div>
+          <div class="luxury-ornament orn-bottom-left"></div>
+
+          <div class="pkg-title-area" style="margin-top:10px; margin-bottom:20px;">
+            <h2 style="font-family:var(--font-serif); font-size:28px; color:var(--gold); text-align:center;">محتويات وتفاصيل اللعبة</h2>
+          </div>
+
+          <p class="pkg-back-desc">
+            رحلة من الحوار الأسري البناء والألفة المتجددة. تحتوي هذه اللعبة على 120 كرت حوار ونشاط تفاعلي مقسمة على 5 فئات دقيقة تعيد التآلف وتنمي لغة الحب وتؤسس لبناء السكن العائلي الهادئ.
+          </p>
+
+          <div class="pkg-back-features">
+            <div class="pkg-feat-item">💚 24 كرت سكن القلوب (رملي أخضر)</div>
+            <div class="pkg-feat-item">💬 24 كرت ميثاق الكلمة (سماوي مائي)</div>
+            <div class="pkg-feat-item">🌱 24 كرت شجرة المودة (ذهبي زيتوني)</div>
+            <div class="pkg-feat-item">🤝 24 كرت جسر التسامح (خزامى ملكي)</div>
+            <div class="pkg-feat-item">✨ 24 كرت سهرتنا (وردي توتي)</div>
+            <div class="pkg-feat-item">📋 كتيب تعليمات ودليل التوافق</div>
+          </div>
+
+          <div class="pkg-barcode-area">
+            <div class="pkg-barcode">
+              <div class="barcode-lines"></div>
+              <span class="barcode-num">6289876543210</span>
+            </div>
+            <div class="pkg-warning">
+              ⚠️ تنبيه: مخصصة للمتزوجين والمقبلين على الارتباط.<br>
+              صنع بعناية وحب في منصة خيركم
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 4. 120 PLAYING CARDS ===== -->
+  <section class="section card-gallery-section" id="cards">
+    <div class="section-header-wrap">
+      <span class="section-badge">كروت اللعبة الـ 120 التفاعلية</span>
+      <h2 class="section-title">فئات كروت اللعبة وتفاصيلها</h2>
+      <p class="section-desc">
+        تصفح كروت سكن ومودة الـ 120 الموزعة بالتساوي على فئاتها الخمس بحدود ذهبية دقيقة وأسئلة عائلية دافئة. انقر على أي كرت لقلبه لرؤية الخلفية.
+      </p>
+    </div>
+
+    <!-- Filters and Search -->
+    <div class="gallery-filters">
+      <button class="filter-btn active" data-category="all">عرض الجميع</button>
+      <button class="filter-btn" data-category="sakan">💚 سكن القلوب</button>
+      <button class="filter-btn" data-category="meethaq">💬 ميثاق الكلمة</button>
+      <button class="filter-btn" data-category="shajarah">🌱 شجرة المودة</button>
+      <button class="filter-btn" data-category="jisr">🤝 جسر التسامح</button>
+      <button class="filter-btn" data-category="sahrah">✨ سهرتنا</button>
+    </div>
+
+    <div class="search-wrap">
+      <input type="text" id="card-search" placeholder="ابحث عن سؤال معين في الكروت..." class="search-input" />
+      <span class="search-icon">🔍</span>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="cards-grid" id="cards-grid">
+      <!-- Cards will be populated dynamically from sakan-mawaddah.js -->
+    </div>
+  </section>
+
+  <!-- ===== 5. INSTRUCTION BOOKLET ===== -->
+  <section class="section" id="booklet">
+    <div class="section-header-wrap">
+      <span class="section-badge">دليل اللعب والمنهج</span>
+      <h2 class="section-title">كتيب تعليمات وقوانين اللعبة</h2>
+      <p class="section-desc">
+        كيف تلعبون سكن ومودة؟ استكشفوا كتيب القوانين والأدلة العاطفية المرفق لبناء تفاهم متين في السهرة.
+      </p>
+    </div>
+
+    <div class="glass-panel booklet-container">
+      <!-- Booklet Nav -->
+      <div class="booklet-nav">
+        <button class="booklet-nav-btn active" onclick="setupBooklet(0)">١. مقدمة اللعبة والنهج</button>
+        <button class="booklet-nav-btn" onclick="setupBooklet(1)">٢. كيفية اللعب والإعداد</button>
+        <button class="booklet-nav-btn" onclick="setupBooklet(2)">٣. رصد النقاط والتوافق</button>
+        <button class="booklet-nav-btn" onclick="setupBooklet(3)">٤. نصائح لجلسة استثنائية</button>
+      </div>
+
+      <!-- Booklet Viewer Page -->
+      <div class="booklet-viewer" id="booklet-viewer">
+        <div class="booklet-page-content">
+          <div class="booklet-header">
+            <span class="booklet-header-brand">💍 سكن ومودة — من منصة خيركم</span>
+            <span style="font-size:11px; opacity:0.6;">كتيب الإرشادات</span>
+          </div>
+          <h3 class="booklet-title">مقدمة اللعبة والنهج</h3>
+          <div class="booklet-body">
+            <!-- Content Injected via JS -->
+          </div>
+        </div>
+        <div class="booklet-footer">
+          <button onclick="navigateBooklet(-1)">السابق ◀</button>
+          <span class="booklet-page-num">صفحة ١ من ٤</span>
+          <button onclick="navigateBooklet(1)">التالي ▶</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 6. SCORE BOOK ===== -->
+  <section class="section" id="scorebook">
+    <div class="section-header-wrap">
+      <span class="section-badge">كراسة رصد التوافق المشترك</span>
+      <h2 class="section-title">دفتر تسجيل النتائج الرقمي والتفاعلي</h2>
+      <p class="section-desc">
+        رصيد النتائج المشترك للزوجين لتقييم مدى السكينة والتفاهم وحساب نسبة التوافق في السهرة.
+      </p>
+    </div>
+
+    <div class="glass-panel scorebook-grid">
+      <!-- Score Sheet Table -->
+      <div class="scorebook-sheet">
+        <div class="scorebook-header">
+          <h3 class="scorebook-main-title">دفتر رصد النتائج</h3>
+          <div class="scorebook-meta">
+            <span>التاريخ: <span class="scorebook-meta-line"></span></span>
+            <span>الزوجين: <span class="scorebook-meta-line"></span></span>
+          </div>
+        </div>
+
+        <table class="scorebook-table">
+          <thead>
+            <tr>
+              <th>الفئة</th>
+              <th>المعدل المستهدف</th>
+              <th>عدد الإجابات النموذجية (0 - 5)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>💚 سكن القلوب</td>
+              <td>5 نقاط لكل كرت</td>
+              <td><input type="number" class="score-input" data-weight="5" value="4" min="0" max="5"></td>
+            </tr>
+            <tr>
+              <td>💬 ميثاق الكلمة</td>
+              <td>5 نقاط لكل كرت</td>
+              <td><input type="number" class="score-input" data-weight="5" value="4" min="0" max="5"></td>
+            </tr>
+            <tr>
+              <td>🌱 شجرة المودة</td>
+              <td>10 نقاط لكل كرت</td>
+              <td><input type="number" class="score-input" data-weight="10" value="3" min="0" max="5"></td>
+            </tr>
+            <tr>
+              <td>🤝 جسر التسامح</td>
+              <td>10 نقاط لكل كرت</td>
+              <td><input type="number" class="score-input" data-weight="10" value="4" min="0" max="5"></td>
+            </tr>
+            <tr>
+              <td>✨ سهرتنا</td>
+              <td>15 نقطة لكل كرت</td>
+              <td><input type="number" class="score-input" data-weight="15" value="5" min="0" max="5"></td>
+            </tr>
+            <tr class="scorebook-total-row">
+              <td colspan="2">إجمالي رصيد التوافق المحقق</td>
+              <td id="calc-total-points">185 نقطة</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="font-size:11px; color:#555; text-align:center; line-height:1.5;">
+          * مجموع النقاط الكلي المستهدف يعتمد على مجموع الأوزان وعدد الإجابات المسجلة.
+        </p>
+      </div>
+
+      <!-- Compatibility Gauge -->
+      <div class="score-calculator">
+        <h3 class="calc-title">مقياس السكينة والانسجام الأسري</h3>
+        <div class="compatibility-meter">
+          <svg width="160" height="160">
+            <circle class="circle-bg" cx="80" cy="80" r="70"></circle>
+            <circle class="circle-progress" id="score-progress" cx="80" cy="80" r="70"></circle>
+          </svg>
+          <div class="score-percentage" id="score-percent">84%</div>
+        </div>
+        <p class="score-message" id="score-message">
+          امتياز! توافق أسري باهر وسكينة حقيقية تغمر أرجاء بيتكما وتنسج خيوط المودة والرحمة بأجمل صورة.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 7. WELCOME CARD ===== -->
+  <section class="section" id="welcome" style="padding-bottom:120px;">
+    <div class="section-header-wrap">
+      <span class="section-badge">رسالة ترحيبية مغلفة بالامتنان</span>
+      <h2 class="section-title">بطاقة ترحيبية من فريق خيركم</h2>
+      <p class="section-desc">
+        البطاقة الفاخرة المدرجة في مقدمة علبة اللعبة بلمسات مذهّبة فاخرة.
+      </p>
+    </div>
+
+    <div class="glass-panel welcome-card-display">
+      <div class="welcome-card-render">
+        <div class="welcome-card-inner">
+          <div class="wcard-logo-wrap">
+            <img src="logo.png" alt="خيركم" class="wcard-logo" onerror="this.style.display='none'">
+          </div>
+          <h2 class="wcard-title">سكن ومودة</h2>
+          <p class="wcard-message">
+            شريك حياتنا العزيز،<br><br>
+            نضع بين يديكما بكل فخر ومحبة لعبة "سكن ومودة" الحوارية. لقد استوحينا هذه اللعبة من دستور الأسرة الأصيل ومفهوم السكينة الزوجية لتكون دليلاً عملياً وأداة ماتعة تعيد اكتشاف لغات الحب المشترك وبناء مساحات آمنة للتفهم والتسامح بين شريكي الحياة. نأمل أن تضفي هذه اللعبة بهجة وسكينة وذكراً طيباً على سهراتكم الدافئة.<br><br>
+            شاكرين ثقتكم باختيار لعبة "سكن ومودة" لتكون رفيقة رحلة الحب والانسجام العائلي.<br><br>
+            فريق منصة خيركم.
+          </p>
+          <div class="wcard-signature">
+            فريق منصة خيركم
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer style="background:var(--luxury-dark); border-top:1px solid rgba(200,151,58,0.2); padding:40px 24px; text-align:center;">
+    <img src="logo.png" alt="خيركم" style="height:70px; margin-bottom:15px; width:auto;" onerror="this.style.display='none'">
+    <p style="font-size:13px; color:var(--gray-700); line-height:1.7;">
+      تأليف وإعداد: فريق منصة خيركم • جميع الحقوق محفوظة لعلامة سكن ومودة © 2026<br>
+      "خيركم خيركم لأهله، وأنا خيركم لأهلي"
+    </p>
+  </footer>
+
+  <script src="sakan-mawaddah.js"></script>
+</body>
+</html>
